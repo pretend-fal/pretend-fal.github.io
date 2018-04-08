@@ -99,25 +99,25 @@
 
 
 
-  <meta name="description" content="hello I am PeiPei">
-<meta name="keywords" content="begin">
+  <meta name="description" content="我们有一个无向图，然后要求生成一棵边权之和最小的树 首先，我们可以暴力，枚举每一条边选不选，然后计算边权和，更新答案，必定会TLE，这是显然的； 那么我们需要一种较为高效的算法来解决这种问题，这时候，我们就可以学一下MST（最小生成树）的Kruskal算法了 这个算法用到了一些贪心的思想，就是我们每次选当前待选的边权最小的那条边，如果这条边符合性质，我们就把它加入到树中，否则，我们换下一条边，一直">
+<meta name="keywords" content="algorithm of OI">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PP">
-<meta property="og:url" content="http://pretend-fal.github.io/2018/04/08/hello-world/index.html">
+<meta property="og:title" content="MST">
+<meta property="og:url" content="http://pretend-fal.github.io/2018/04/08/MST/index.html">
 <meta property="og:site_name" content="The world which is god and mine">
-<meta property="og:description" content="hello I am PeiPei">
+<meta property="og:description" content="我们有一个无向图，然后要求生成一棵边权之和最小的树 首先，我们可以暴力，枚举每一条边选不选，然后计算边权和，更新答案，必定会TLE，这是显然的； 那么我们需要一种较为高效的算法来解决这种问题，这时候，我们就可以学一下MST（最小生成树）的Kruskal算法了 这个算法用到了一些贪心的思想，就是我们每次选当前待选的边权最小的那条边，如果这条边符合性质，我们就把它加入到树中，否则，我们换下一条边，一直">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-04-08T06:40:35.113Z">
+<meta property="og:updated_time" content="2018-04-08T06:40:25.372Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="PP">
-<meta name="twitter:description" content="hello I am PeiPei">
+<meta name="twitter:title" content="MST">
+<meta name="twitter:description" content="我们有一个无向图，然后要求生成一棵边权之和最小的树 首先，我们可以暴力，枚举每一条边选不选，然后计算边权和，更新答案，必定会TLE，这是显然的； 那么我们需要一种较为高效的算法来解决这种问题，这时候，我们就可以学一下MST（最小生成树）的Kruskal算法了 这个算法用到了一些贪心的思想，就是我们每次选当前待选的边权最小的那条边，如果这条边符合性质，我们就把它加入到树中，否则，我们换下一条边，一直">
 
 
 
 
 
 
-  <link rel="canonical" href="http://pretend-fal.github.io/2018/04/08/hello-world/"/>
+  <link rel="canonical" href="http://pretend-fal.github.io/2018/04/08/MST/"/>
 
 
 
@@ -127,7 +127,7 @@
   };
 </script>
 
-  <title>PP | The world which is god and mine</title>
+  <title>MST | The world which is god and mine</title>
   
 
 
@@ -308,7 +308,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://pretend-fal.github.io/2018/04/08/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://pretend-fal.github.io/2018/04/08/MST/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="pretend-fal">
@@ -325,7 +325,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">PP</h1>
+          <h1 class="post-title" itemprop="name headline">MST</h1>
         
 
         <div class="post-meta">
@@ -337,7 +337,7 @@
               
                 <span class="post-meta-item-text">post.posted</span>
               
-              <time title="post.created" itemprop="dateCreated datePublished" datetime="2018-04-08T09:43:09+08:00">2018-04-08</time>
+              <time title="post.created" itemprop="dateCreated datePublished" datetime="2018-04-08T14:18:51+08:00">2018-04-08</time>
             
 
             
@@ -374,7 +374,15 @@
       
 
       
-        <h2 id="hello-I-am-PeiPei"><a href="#hello-I-am-PeiPei" class="headerlink" title="hello I am PeiPei"></a>hello I am PeiPei</h2>
+        <p><strong>我们有一个无向图，然后要求生成一棵边权之和最小的树</strong></p>
+<p><strong>首先，我们可以暴力，枚举每一条边选不选，然后计算边权和，更新答案，必定会TLE，这是显然的；</strong></p>
+<p><strong>那么我们需要一种较为高效的算法来解决这种问题，这时候，我们就可以学一下MST（最小生成树）的Kruskal算法了</strong></p>
+<p><strong>这个算法用到了一些贪心的思想，就是我们每次选当前待选的边权最小的那条边，如果这条边符合性质，我们就把它加入到树中，否则，我们换下一条边，一直重复这个过程，知道我们加入了n-1条边（n为节点数）；</strong></p>
+<p><strong>那么显然我们是要排序的，根据边权大小由小到大排序，每次取出一条边，判断是否合法的方法是用并查集，如果两个端点在一个集合中，说明这两个点一定在此之前由一些更短的边在连接其它的点的时候将这两个点连入了一个集合，所以当前边是没必要选的，且不可以选，不然违反了树的性质，有了环，如果两个端点不在一个集合，我们就把这两个点连入一个集合，处理完当前的边后，继续下一条边，直至结束；</strong></p>
+<p><strong>完整代码：</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> II long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> I 223456</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line">II n,m,ans;</span><br><span class="line">II fa[I];</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span> &#123;</span></span><br><span class="line">    II x,y,flow;</span><br><span class="line">    <span class="keyword">friend</span> <span class="keyword">bool</span> <span class="keyword">operator</span> &lt; (node a1,node a2) </span><br><span class="line">    	&#123; <span class="keyword">return</span> a1.flow&lt;a2.flow; &#125;</span><br><span class="line">&#125;aa[I];</span><br><span class="line"></span><br><span class="line"><span class="function">II <span class="title">find</span><span class="params">(II x)</span> </span>&#123; <span class="keyword">return</span> fa[x]==x ? x : fa[x]=find(fa[x]); &#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">join</span><span class="params">(II x,II y)</span> </span>&#123; fa[x]=y; &#125; </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%lld%lld"</span>,&amp;n,&amp;m);</span><br><span class="line">    <span class="keyword">for</span>(II i=<span class="number">1</span>;i&lt;=m;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        II x,y,z;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%lld%lld%lld"</span>,&amp;x,&amp;y,&amp;z);</span><br><span class="line">        aa[i].x=x;aa[i].y=y;</span><br><span class="line">        aa[i].flow=z;</span><br><span class="line">				<span class="comment">//选择结构体存边，保证不会出现乱的情况；</span></span><br><span class="line">    &#125;</span><br><span class="line">    sort(aa+<span class="number">1</span>,aa+m+<span class="number">1</span>); </span><br><span class="line">		<span class="comment">//贪心排序；</span></span><br><span class="line">    <span class="keyword">for</span>(II i=<span class="number">1</span>;i&lt;=n;i++) fa[i]=i;</span><br><span class="line">		<span class="comment">//初始化，每个点都分别在一个不同的集合里；</span></span><br><span class="line">    <span class="keyword">for</span>(II i=<span class="number">1</span>;i&lt;=m;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(find(aa[i].x)!=find(aa[i].y)) &#123;</span><br><span class="line">					<span class="comment">//判断是否在一个集合里；</span></span><br><span class="line">            join(find(aa[i].x),find(aa[i].y));</span><br><span class="line">						<span class="comment">//连入树中；</span></span><br><span class="line">            ans+=aa[i].flow;</span><br><span class="line">						<span class="comment">//ans加上当前边权；</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;ans&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>由于时间紧迫，这篇文章没有图片解释，见谅；<br>by pretend-fal；<br>END；</p>
+
       
     </div>
 
@@ -394,7 +402,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/begin/" rel="tag"># begin</a>
+            <a href="/tags/algorithm-of-OI/" rel="tag"># algorithm of OI</a>
           
         </div>
       
@@ -407,14 +415,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/04/08/并查集/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/04/08/HEOI2018颓废记/" rel="prev" title="HEOI2018颓废记">
-                HEOI2018颓废记 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/04/08/Tarjan/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -464,17 +476,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            sidebar.toc
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            sidebar.overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -540,22 +543,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#hello-I-am-PeiPei"><span class="nav-number">1.</span> <span class="nav-text">hello I am PeiPei</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       

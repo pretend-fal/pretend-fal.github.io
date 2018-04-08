@@ -99,20 +99,25 @@
 
 
 
-  <meta property="og:type" content="website">
+  <meta name="description" content="求最大值 f ( i , j ) 是从 i 到 $i+2^j$ 的最大值，ennnnnnnnnnnnnn， 首先我们用倍增的思想 $$ f[j][i]=max(f[j][i-1],f[j+(o&amp;gt;&amp;gt;1)][i-1]) $$ 因为当前区间可以分为前半段和后半段，那么当前区间的最大值就是两端最大值的 $max$ 1234567891011121314151617181920212223242">
+<meta name="keywords" content="algorithm of OI">
+<meta property="og:type" content="article">
 <meta property="og:title" content="The world which is god and mine">
-<meta property="og:url" content="http://pretend-fal.github.io/archives/index.html">
+<meta property="og:url" content="http://pretend-fal.github.io/2018/04/08/ST表/index.html">
 <meta property="og:site_name" content="The world which is god and mine">
+<meta property="og:description" content="求最大值 f ( i , j ) 是从 i 到 $i+2^j$ 的最大值，ennnnnnnnnnnnnn， 首先我们用倍增的思想 $$ f[j][i]=max(f[j][i-1],f[j+(o&amp;gt;&amp;gt;1)][i-1]) $$ 因为当前区间可以分为前半段和后半段，那么当前区间的最大值就是两端最大值的 $max$ 1234567891011121314151617181920212223242">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-04-08T06:40:23.455Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="The world which is god and mine">
+<meta name="twitter:description" content="求最大值 f ( i , j ) 是从 i 到 $i+2^j$ 的最大值，ennnnnnnnnnnnnn， 首先我们用倍增的思想 $$ f[j][i]=max(f[j][i-1],f[j+(o&amp;gt;&amp;gt;1)][i-1]) $$ 因为当前区间可以分为前半段和后半段，那么当前区间的最大值就是两端最大值的 $max$ 1234567891011121314151617181920212223242">
 
 
 
 
 
 
-  <link rel="canonical" href="http://pretend-fal.github.io/archives/"/>
+  <link rel="canonical" href="http://pretend-fal.github.io/2018/04/08/ST表/"/>
 
 
 
@@ -122,7 +127,7 @@
   };
 </script>
 
-  <title>title.archive | The world which is god and mine</title>
+  <title> | The world which is god and mine</title>
   
 
 
@@ -169,7 +174,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -287,417 +292,168 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://pretend-fal.github.io/2018/04/08/ST表/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="pretend-fal">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="The world which is god and mine">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline"></h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">post.posted</span>
+              
+              <time title="post.created" itemprop="dateCreated datePublished" datetime="2018-04-08T14:18:25+08:00">2018-04-08</time>
+            
+
+            
+            
+
+            
+          </span>
+
           
-        
-        cheers.um! counter.archive_posts keep_on
-      </span>
-      
 
-      
-
-        
-        
-        
-
-        
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2018">2018</h1>
-          </div>
-        
-        
+            
+          
 
-        
+          
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/04/08/博弈论/" itemprop="url">
-              
-                <span itemprop="name">post.untitled</span>
-              
-            </a>
-        
-      </h2>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-04-08T14:20:02+08:00"
-              content="2018-04-08" >
-          04-08
-        </time>
-      </div>
+          
 
-    </header>
-  </article>
+        </div>
+      </header>
+    
 
-
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/04/08/gcd&exgcd/" itemprop="url">
-              
-                <span itemprop="name">gcd&exgcd</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-04-08T14:20:02+08:00"
-              content="2018-04-08" >
-          04-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/04/08/素数筛/" itemprop="url">
-              
-                <span itemprop="name">post.untitled</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-04-08T14:20:02+08:00"
-              content="2018-04-08" >
-          04-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <p>求最大值</p>
+<p>f ( i , j ) 是从 i 到 $i+2^j$ 的最大值，ennnnnnnnnnnnnn，</p>
+<p>首先我们用倍增的思想</p>
+<p>$$ f[j][i]=max(f[j][i-1],f[j+(o&gt;&gt;1)][i-1]) $$</p>
+<p>因为当前区间可以分为前半段和后半段，那么当前区间的最大值就是两端最大值的 $max$</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> II int</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> R register</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> I 123456</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line">II f[I][<span class="number">30</span>];</span><br><span class="line">II n,q;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n,&amp;q);</span><br><span class="line">	<span class="keyword">for</span>(R II i=<span class="number">1</span>;i&lt;=n;i++) <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;f[i][<span class="number">0</span>]);</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">for</span>(R II i=<span class="number">1</span>;(<span class="number">1</span>&lt;&lt;i)&lt;=n;i++)</span><br><span class="line">	<span class="comment">// 这里(1&lt;&lt;j)&lt;=n；</span></span><br><span class="line">	&#123;</span><br><span class="line">		R II o=<span class="number">1</span>&lt;&lt;i;</span><br><span class="line">		<span class="keyword">for</span>(R II j=<span class="number">1</span>;j&lt;=n-o+<span class="number">1</span>;j++)</span><br><span class="line">		<span class="comment">// 这里要j&lt;=n-o+1；</span></span><br><span class="line">			f[j][i]=max(f[j][i<span class="number">-1</span>],f[j+(o&gt;&gt;<span class="number">1</span>)][i<span class="number">-1</span>]);</span><br><span class="line">	&#125; </span><br><span class="line">	</span><br><span class="line">	<span class="keyword">while</span> (q--) &#123;</span><br><span class="line">		R II l,r,ans=<span class="number">-1e9</span>;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;l,&amp;r);</span><br><span class="line">		R II o=<span class="built_in">log</span>(r-l+<span class="number">1</span>)/<span class="built_in">log</span>(<span class="number">2</span>);</span><br><span class="line">		ans=max(f[l][o],f[r-(<span class="number">1</span>&lt;&lt;o)+<span class="number">1</span>][o]);</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,ans);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/04/08/Tarjan/" itemprop="url">
-              
-                <span itemprop="name">post.untitled</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-04-08T14:18:51+08:00"
-              content="2018-04-08" >
-          04-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/04/08/MST/" itemprop="url">
-              
-                <span itemprop="name">MST</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-04-08T14:18:51+08:00"
-              content="2018-04-08" >
-          04-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/04/08/并查集/" itemprop="url">
-              
-                <span itemprop="name">post.untitled</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-04-08T14:18:51+08:00"
-              content="2018-04-08" >
-          04-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/04/08/ST表/" itemprop="url">
-              
-                <span itemprop="name">post.untitled</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-04-08T14:18:25+08:00"
-              content="2018-04-08" >
-          04-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/04/08/手工开栈/" itemprop="url">
-              
-                <span itemprop="name">手工开栈</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-04-08T14:12:38+08:00"
-              content="2018-04-08" >
-          04-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/04/08/对拍/" itemprop="url">
-              
-                <span itemprop="name">对拍</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-04-08T14:10:07+08:00"
-              content="2018-04-08" >
-          04-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/04/08/problem1/" itemprop="url">
-              
-                <span itemprop="name">problem1</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-04-08T12:48:38+08:00"
-              content="2018-04-08" >
-          04-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/algorithm-of-OI/" rel="tag"># algorithm of OI</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/08/手工开栈/" rel="next" title="手工开栈">
+                <i class="fa fa-chevron-left"></i> 手工开栈
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/08/并查集/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/"><i class="fa fa-angle-right" aria-label="accessibility.next_page"></i></a>
-  </nav>
+  </article>
 
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -912,6 +668,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.1.0"></script>
+
+
 
   
 
