@@ -99,20 +99,24 @@
 
 
 
-  <meta property="og:type" content="website">
+  <meta name="description" content="lxw’s adventures solution桌布（teblecloth）​    是不是一下子就想到了生成树？？！ ​    其实就是生成树+贪心 ​    首先我们从大到小加边，直到再加一条边就由 $k$ 个联通块变为 $k-1$ 个联通块为止 ​    然后呢，已经加进去的边是不属于我们要删的边集的，那么对于剩下的没加进去的边，只有一部分是需要删的，为什么呢？？！ ​    如果说，在剩">
+<meta property="og:type" content="article">
 <meta property="og:title" content="The world which is god and mine">
-<meta property="og:url" content="http://pretend-fal.github.io/index.html">
+<meta property="og:url" content="http://pretend-fal.github.io/2018/04/08/lxw's adventures solution/index.html">
 <meta property="og:site_name" content="The world which is god and mine">
+<meta property="og:description" content="lxw’s adventures solution桌布（teblecloth）​    是不是一下子就想到了生成树？？！ ​    其实就是生成树+贪心 ​    首先我们从大到小加边，直到再加一条边就由 $k$ 个联通块变为 $k-1$ 个联通块为止 ​    然后呢，已经加进去的边是不属于我们要删的边集的，那么对于剩下的没加进去的边，只有一部分是需要删的，为什么呢？？！ ​    如果说，在剩">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-03-21T08:28:26.672Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="The world which is god and mine">
+<meta name="twitter:description" content="lxw’s adventures solution桌布（teblecloth）​    是不是一下子就想到了生成树？？！ ​    其实就是生成树+贪心 ​    首先我们从大到小加边，直到再加一条边就由 $k$ 个联通块变为 $k-1$ 个联通块为止 ​    然后呢，已经加进去的边是不属于我们要删的边集的，那么对于剩下的没加进去的边，只有一部分是需要删的，为什么呢？？！ ​    如果说，在剩">
 
 
 
 
 
 
-  <link rel="canonical" href="http://pretend-fal.github.io/"/>
+  <link rel="canonical" href="http://pretend-fal.github.io/2018/04/08/lxw's adventures solution/"/>
 
 
 
@@ -122,7 +126,7 @@
   };
 </script>
 
-  <title>The world which is god and mine</title>
+  <title> | The world which is god and mine</title>
   
 
 
@@ -169,8 +173,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -287,9 +290,9 @@
           
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -321,9 +324,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/08/lxw's adventures solution/" itemprop="url">post.untitled</a></h1>
+          <h1 class="post-title" itemprop="name headline"></h1>
         
 
         <div class="post-meta">
@@ -372,20 +373,41 @@
       
 
       
-        
-          
-          lxw’s adventures solution桌布（teblecloth）​    是不是一下子就想到了生成树？？！
-​    其实就是生成树+贪心
-​    首先我们从大到小加边，直到再加一条边
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/04/08/lxw's adventures solution/#post.more" rel="contents">
-              post.read_more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+        <h1 id="lxw’s-adventures-solution"><a href="#lxw’s-adventures-solution" class="headerlink" title="lxw’s adventures solution"></a>lxw’s adventures solution</h1><h2 id="桌布（teblecloth）"><a href="#桌布（teblecloth）" class="headerlink" title="桌布（teblecloth）"></a>桌布（teblecloth）</h2><p>​    是不是一下子就想到了生成树？？！</p>
+<p>​    其实就是生成树+贪心</p>
+<p>​    首先我们从大到小加边，直到再加一条边就由 $k$ 个联通块变为 $k-1$ 个联通块为止</p>
+<p>​    然后呢，已经加进去的边是不属于我们要删的边集的，那么对于剩下的没加进去的边，只有一部分是需要删的，为什么呢？？！</p>
+<p>​    如果说，在剩下的边中，由一些边所连的两个点已经在一个联通块了，那么这条边不应该删，因为这条边删了不会影响联通块数量，但是会是 $ans$ 变大，与我们的意志相违背，所以，我们要把没有加进去的边中，已经连接两个属于同一联通块的边加进图里</p>
+<p>​    做完这些后还没有加进去的边就是需要删的边</p>
+<h2 id="颜色（color）"><a href="#颜色（color）" class="headerlink" title="颜色（color）"></a>颜色（color）</h2><p>​    一行 $n$ 个格子，要求支持以下操作：</p>
+<ul>
+<li><p>单点修改</p>
+</li>
+<li><p><code>[l,r]</code> 中给定颜色最靠中间的位置</p>
+<p>​</p>
+<p>那么我们开 $c$ 棵线段树，分别维护每个颜色，那么这个题就变为了这样子</p>
+<ul>
+<li style="list-style: none"><input type="checkbox" checked> 单点修改就是在原来颜色中删节点，在新的颜色中添加节点  </li>
+<li><p>[x] 在给定的颜色的线段树中查询最靠中间的位置 </p>
+<pre><code>- `[l,r]` 找中间位置，分为`[l,mid]` 找最右端位置 和 `[mid,r]` 找最左端位置
+
+  ​
+</code></pre></li>
+</ul>
+</li>
+</ul>
+<h2 id="银行卡（card）"><a href="#银行卡（card）" class="headerlink" title="银行卡（card）"></a>银行卡（card）</h2><p>​    $n$ 个数字，每个位置是<code>[0,9]</code> 中任意一个，且<code>[0,9]</code> 中每一位的下一位都属于一个固定集合那么我们设</p>
+<blockquote>
+<p>f ( i , j ) 表示 到第 i 个位置，结尾是 j 这个数字的方案数</p>
+</blockquote>
+<p>显然 假设 $k$ 的下一位集合是 $S_k$ 那么转移为 <code>f[i][j] += f[i-1][k]</code> 其中 $j$ ∈ $S_k$ </p>
+<p>但是，$n &lt;=1000000000000000000$ </p>
+<p>那么，考虑优化</p>
+<p>由于是线性递推，则可以用矩阵乘法加速  </p>
+<p>初始矩阵为 <code>a[0][j]=1</code> 其中 $j ∈ [0,9]$  </p>
+<p>基底矩阵为 <code>c[i][j]=1</code> 其中 $i ∈ [0,9], j ∈ S_i$  </p>
+<p>最后矩阵乘法快速幂即可</p>
+
       
     </div>
 
@@ -405,159 +427,28 @@
       
 
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://pretend-fal.github.io/2018/04/08/problem1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="pretend-fal">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="The world which is god and mine">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/08/problem1/" itemprop="url">problem1</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">post.posted</span>
-              
-              <time title="post.created" itemprop="dateCreated datePublished" datetime="2018-04-08T12:48:38+08:00">2018-04-08</time>
+              <a href="/2018/04/08/problem1/" rel="next" title="problem1">
+                <i class="fa fa-chevron-left"></i> problem1
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-          lxw’s adventures
-
-
-题目名称
-桌布
-颜色
-银行卡
-
-
-
-
-文件名
-tablecloth.cpp/c/pas
-color.cpp/c/pas
-card.cpp/c/pas
-
-
-时间限制
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/04/08/problem1/#post.more" rel="contents">
-              post.read_more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -567,275 +458,19 @@ card.cpp/c/pas
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://pretend-fal.github.io/2018/04/08/HEOI2018颓废记/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="pretend-fal">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="The world which is god and mine">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/08/HEOI2018颓废记/" itemprop="url">HEOI2018颓废记</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">post.posted</span>
-              
-              <time title="post.created" itemprop="dateCreated datePublished" datetime="2018-04-08T10:59:00+08:00">2018-04-08</time>
-            
-
-            
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          2018 - 4 - 7
-今天啊，我们省选完了，然后呢，我的所谓的希望也结束了，嗯。。。。。大家大概都没有考到自己想要的成绩，YY也翻了，真的十分可惜，他进队我是可以服的，但是他翻了，昨天考完试，他们
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/04/08/HEOI2018颓废记/#post.more" rel="contents">
-              post.read_more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+    <div class="post-spread">
       
     </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://pretend-fal.github.io/2018/04/08/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="pretend-fal">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="The world which is god and mine">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/08/hello-world/" itemprop="url">PP</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">post.posted</span>
-              
-              <time title="post.created" itemprop="dateCreated datePublished" datetime="2018-04-08T09:43:09+08:00">2018-04-08</time>
-            
-
-            
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          hello I am PeiPei
-          
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/04/08/hello-world/#post.more" rel="contents">
-              post.read_more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -856,8 +491,17 @@ card.cpp/c/pas
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            sidebar.toc
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            sidebar.overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -919,6 +563,22 @@ card.cpp/c/pas
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#lxw’s-adventures-solution"><span class="nav-number">1.</span> <span class="nav-text">lxw’s adventures solution</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#桌布（teblecloth）"><span class="nav-number">1.1.</span> <span class="nav-text">桌布（teblecloth）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#颜色（color）"><span class="nav-number">1.2.</span> <span class="nav-text">颜色（color）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#银行卡（card）"><span class="nav-number">1.3.</span> <span class="nav-text">银行卡（card）</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1046,6 +706,10 @@ card.cpp/c/pas
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.1.0"></script>
+
+
 
   
 
