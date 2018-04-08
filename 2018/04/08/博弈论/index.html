@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.1.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.1.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.1.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="一．巴什博奕（Bash Game）：首先我们来玩一个比较古老的报数游戏。A和B一起报数，每个人每次最少报一个,最多报4个。轮流报数,看谁先报到30.如果不知道巴什博弈的可能会觉得这个是个有运气成分的问题，但是如果知道的人一定知道怎样一定可以赢。比如A先报数的话,那么B一定可以赢(这里假定B知道怎么正确的报数)B可以这样报数,每次报5-k(A)个数,其中k(A)是A报数的个数这样的话没一次两人报完数">
+<meta name="keywords" content="algorithm of OI">
+<meta property="og:type" content="article">
+<meta property="og:title" content="博弈论">
+<meta property="og:url" content="http://pretend-fal.github.io/2018/04/08/博弈论/index.html">
+<meta property="og:site_name" content="The world which is god and mine">
+<meta property="og:description" content="一．巴什博奕（Bash Game）：首先我们来玩一个比较古老的报数游戏。A和B一起报数，每个人每次最少报一个,最多报4个。轮流报数,看谁先报到30.如果不知道巴什博弈的可能会觉得这个是个有运气成分的问题，但是如果知道的人一定知道怎样一定可以赢。比如A先报数的话,那么B一定可以赢(这里假定B知道怎么正确的报数)B可以这样报数,每次报5-k(A)个数,其中k(A)是A报数的个数这样的话没一次两人报完数">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-04-08T07:35:44.157Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="博弈论">
+<meta name="twitter:description" content="一．巴什博奕（Bash Game）：首先我们来玩一个比较古老的报数游戏。A和B一起报数，每个人每次最少报一个,最多报4个。轮流报数,看谁先报到30.如果不知道巴什博弈的可能会觉得这个是个有运气成分的问题，但是如果知道的人一定知道怎样一定可以赢。比如A先报数的话,那么B一定可以赢(这里假定B知道怎么正确的报数)B可以这样报数,每次报5-k(A)个数,其中k(A)是A报数的个数这样的话没一次两人报完数">
+
+
+
+
+
+
+  <link rel="canonical" href="http://pretend-fal.github.io/2018/04/08/博弈论/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>博弈论 | The world which is god and mine</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas>
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
+   <script type="text/javascript" src="/js/src/fireworks.js"></script>
+
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> 
+
+<div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">The world which is god and mine</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="accessibility.nav_toggle">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+          
+  
+  <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />home</a>
+</li>
+
+      
+        
+        
+          
+  
+  <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />about</a>
+</li>
+
+      
+        
+        
+          
+  
+  <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />tags</a>
+</li>
+
+      
+        
+        
+          
+  
+  <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />categories</a>
+</li>
+
+      
+        
+        
+          
+  
+  <li class="menu-item menu-item-schedule">
+    <a href="/schedule/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />schedule</a>
+</li>
+
+      
+
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+  
+
+
+
+ </div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://pretend-fal.github.io/2018/04/08/博弈论/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="pretend-fal">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="The world which is god and mine">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">博弈论</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">post.posted</span>
+              
+              <time title="post.created" itemprop="dateCreated datePublished" datetime="2018-04-08T14:20:02+08:00">2018-04-08</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>一．巴什博奕（Bash Game）：<br>首先我们来玩一个比较古老的报数游戏。A和B一起报数，每个人每次最少报一个,最多报4个。轮流报数,看谁先报到30.<br>如果不知道巴什博弈的可能会觉得这个是个有运气成分的问题，但是如果知道的人一定知道怎样一定可以赢。<br>比如A先报数的话,那么B一定可以赢(这里假定B知道怎么正确的报数)<br>B可以这样报数,每次报5-k(A)个数,其中k(A)是A报数的个数这样的话没一次<br>两人报完数之后会变成5 10 15 20 25 30这样是不是B一定会赢呢?是不是有一种被欺骗的感觉呢?好吧下面我们来看看这个原理。我们先看下一个一眼就能看出答案的例子 比如说我们报到5(4+1),每次报最多报4个,最少报1个.那么是不是后者一定可以赢呢？答案是肯定的。好了到这巴什博弈的精髓基本就OK了。<br>那么如果我们要报到n+1,每次最多报n个,最少报1个的话,后者一定能够赢。<br>现在我们需要报数到n,而每次最多报数m个,最少报数1个.我们可以化成这样<br>n = k*(1+m)+r(0 &lt;= r &lt;= m）这样的话如果r不等于0那么先手一定会赢，为什么呢？首先先手报r个,那么剩下k倍(1+m)个数,那么我们每次报数1+m-k(B)个数就一定能保证最后剩下1+m个,那么就到了上面我们说的那个了,先手就一定会赢,如果r=0那么后手一定会赢,道理一样的。<br>到这巴什博弈也就介绍完了,知道这个道理之后我们也可以去骗小朋友了。-_-//<br>代码如下：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> CLR(arr, val) memset(arr, val, sizeof(arr))  </span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;  </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>  </span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    <span class="comment">//freopen("Input.txt", "r", stdin);  </span></span><br><span class="line">    <span class="keyword">int</span> N, num, limit;  </span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;N);  </span><br><span class="line">    <span class="keyword">while</span>(N--)  </span><br><span class="line">    &#123;  </span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;num, &amp;limit);  </span><br><span class="line">        <span class="keyword">if</span>(num % (limit + <span class="number">1</span>) != <span class="number">0</span>) <span class="comment">//必胜局面  </span></span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"Win\n"</span>);  </span><br><span class="line">        <span class="keyword">else</span>  </span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"Lose\n"</span>);  </span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">&#125;        </span><br><span class="line">​</span><br></pre></td></tr></table></figure></p>
+<p>二．威佐夫博奕（Wythoff Game）：<br>   这种博弈比前面一种要稍微复杂一点。我们来看下下面这个游戏。<br>   有两堆火柴棍,每次可以从某一堆取至少1根火柴棍(无上限)，或者从两堆取相同的火柴棍数。最后取完的是胜利者。好了,如果你不知道这个博弈定理,对于小数目的火柴棍数,可能还能推出来,但是如果火柴棍数一多,就不行了。看了下面的这个介绍,你也会有一种被骗的感觉。<br>   首先我们知道两堆火柴是没有差别的,也就是说第一堆有a根,第二堆有b根和第一堆有b根,第二堆有a根是一样的结果。<br>   我们用一个二维的状态（a,b)来记录当前剩下的火柴数，表示第一堆剩下a根火柴,第二堆剩下b根火柴。同样我们假设两个人的编号是A和B，且A先取。<br>那么如果某个人遇到了这样的状态(0,0)那么也就是说这个人输了。这样的状态我们叫做奇异状态,也可以叫做失败态。<br>那么接下来的几个失败态为(1,2),(3,5),(4,7),(6,10),(8,13)……<br>我们用a[i]表示失败态中的第一个,b[i]表示失败态中的第二个.(i从0开始).<br>那么我们可以看到b[i] = a[i]+i;（i &gt;= 0）,a[i]是前面的失败态中没有出现过的最小的整数<br>下面我们可以得到三个基本的结论。<br>  1.每个数仅包含在一个失败态中<br>  首先我们知道a[k]是不可能和前面的失败态中的a[i],b[i]重复的(这点由a[i]的得到可以知道)<br>b[k] = a[k]+k &gt; a[k-1]+k&gt;a[k-1]+k-1+1&gt;a[k-1]+(k-1) = b[k-1]&gt;a[k-1]这样我们知道每个数仅在一个失败态中。<br>  2.每个失败态可以转到非失败态。<br> 加入当前的失败态为(a,b)，那么如果我们只在一堆中取的话,肯定会变成非失败态(这点由第一点可以保证),如果从两堆同时取的话,由于每个失败态的差是不一样的,所以也不可能得到一个失败态。也就是说一个失败态不管你怎么取,都会得到一个非失败态。<br>   3.每个非失败态都可以转到一个失败态<br>对于这个结论,首先我们要知到每个状态(a,b)要么a = a[i],要么b = b[i].(每个数都出现在一个失败态中),下面我们分两种情况来讨论<br>   I.a = a[i].如果b = a的话那么一次取完就变成了(0,0).如果b &gt; b[i]的话,那么我们从第二堆中取走b-b[i]就变成了一个失败态。如果b &lt; b[i].那么我们从两堆中同时取走a-a[b-a[i]]这样得到失败态(a[b-a[i]],a[b-a[i]]+b-a[i])(a[i] = a)<br>   II.b = b[i].如果a &gt; a[i]那么我们从第一堆中取走a-a[i]根火柴.<br>              如果a &lt; a[i].这里又分两种情况。第一是a = a<a href="k &lt; i">k</a><br>那么我们从第二堆取走b - b[k]就行了。<br>第二是a = b[k]这样的话由于两堆火柴是没有区别的,所以我们把b变成a[k]就行了,也即是从第二堆火柴中取走b - a[k]就变成了失败态<br>至于怎么判断一个状态是否是失败态.我们可以用下面的方法来判断(本人暂时还不会证明)<br>  a[i] = <a href="这里的中括号表示向下取整">i*(1+√5)/2</a>   b[i] = a[i]+i;<br>  那么这就是一个失败态<br>代码如下：<br>​<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> CLR(arr, val) memset(arr, val, sizeof(arr))  </span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;  </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>  </span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    <span class="comment">//freopen("Input.txt", "r", stdin);  </span></span><br><span class="line">    <span class="keyword">int</span> num1, num2, tmp; <span class="comment">//第一堆剩的数量为num1,第二堆剩num2  </span></span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;num1, &amp;num2) != EOF)  </span><br><span class="line">    &#123;  </span><br><span class="line">        <span class="keyword">if</span>(num1 &gt; num2)  </span><br><span class="line">            swap(num1, num2);   </span><br><span class="line">        tmp = <span class="built_in">floor</span>((num2 - num1) * (<span class="number">1</span> + <span class="built_in">sqrt</span>(<span class="number">5.0</span>)) / <span class="number">2.0</span>); <span class="comment">//黄金分割  </span></span><br><span class="line">        <span class="keyword">if</span>(tmp == num1) <span class="built_in">printf</span>(<span class="string">"Lose\n"</span>); <span class="comment">//奇异局势必败  </span></span><br><span class="line">        <span class="keyword">else</span>    <span class="built_in">printf</span>(<span class="string">"Win\n"</span>);  </span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>三．尼姆博奕（Nimm Game）：</p>
+<p>指的是这样的一个博弈游戏，目前有任意堆石子，每堆石子个数也是任意的，双方轮流从中取出石子，规则如下：<br>1)每一步应取走至少一枚石子；每一步只能从某一堆中取走部分或全部石子；<br>2)如果谁取到最后一枚石子就胜。<br>也就是尼姆博弈（Nimm Game）。<br>必败局面：也叫奇异局势。无论做出何出操作，最终结果都是输的局面。必败局面经过2次操作后，可以达到另一个必败局面。<br>必胜局面：经过1次操作后可以达到必败局面。<br>即当前局面不是必败局面就是必胜局面，而必胜局面可以一步转变成必败局面。<br>最终状态：<br>（1）最后剩下一堆石子；（必胜局面）<br>（2）剩下两堆，每堆一个；（必败局面）<br>（3）当石子剩下两堆，其中一堆只剩下1颗，另一堆剩下多于n颗石子时，当前取的人只需将多于1颗的那一堆取出n-1颗，则局面变为刚才提到的必败局面。（必胜局面）<br>判断当前局势是否为必胜（必败）局势：<br>1）把所有堆的石子数目用二进制数表示出来，当全部这些数按位异或结果为0时当前局面为必败局面，否则为必胜局面；<br>2）在必胜局面下，因为所有数按位异或的结果是大于零的，那么通过一次取，将这个（大于其它所有数按位异或的结果的）数下降到其它所有数按位异或的结果，这时局面就变为必败局面了。<br>定理：一组自然数中必然存在一个数，它大于等于其它所有数按位异或的结果。<br>证明：原命题等价于，设a1＾a2＾… ＾an=p，p≠0时，必存在k，使得ak＾p&lt;ak（当p=0时，对于任意的k，有ak＾p=ak）。<br>设p的最高位是第q位，则至少存在一个k，使得ak的第q位也是1，而ak＾p的第q位为0，所以ak^p&lt;ak<br>    补缀一点，（a＾b）＾b=a＾（b＾b）=a＾0=a，所以ak＾p相当于“其它所有数按位异或的结果”。<br>例1：2 45 45<br>45＾45＝0,45和45的异或等于0。<br>例 2：3 3 6 9<br>局势（3,6，9）因为3＾6＾9不等于0，所以这是一个必胜局势。<br>　3　011<br>＾6　110<br>　5　101　<br>即从第3堆中的9个中取走9－5＝4个，则（3,6，9）－＞（3,6，5），3＾6＾5＝0，故（3,6，5）为奇异局势，即从必胜局势转变成必败局势。<br>代码如下：<br>​<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;  </span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;  </span><br><span class="line"><span class="keyword">int</span> temp[ <span class="number">20</span> ]; <span class="comment">//火柴的堆数  </span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>  </span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    <span class="keyword">int</span> i, n, min;  </span><br><span class="line">    <span class="keyword">while</span>( <span class="built_in">cin</span> &gt;&gt; n )  </span><br><span class="line">    &#123;  </span><br><span class="line">        <span class="keyword">for</span>( i = <span class="number">0</span>; i &lt; n; i++ )  </span><br><span class="line">            <span class="built_in">cin</span> &gt;&gt; temp[ i ]; <span class="comment">//第i个火柴堆的数量  </span></span><br><span class="line">        min = temp[ <span class="number">0</span> ];  </span><br><span class="line">        <span class="keyword">for</span>( i = <span class="number">1</span>; i &lt; n ; i++ )  </span><br><span class="line">            min = min^temp[ i ]; <span class="comment">//按位异或  </span></span><br><span class="line">        <span class="keyword">if</span>( min == <span class="number">0</span> )  </span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="string">"Lose"</span> &lt;&lt; <span class="built_in">endl</span>; <span class="comment">//输  </span></span><br><span class="line">        <span class="keyword">else</span>  </span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="string">"Win"</span> &lt;&lt; <span class="built_in">endl</span>; <span class="comment">//赢  </span></span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/algorithm-of-OI/" rel="tag"># algorithm of OI</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/08/Tarjan/" rel="next" title="Tarajn">
+                <i class="fa fa-chevron-left"></i> Tarajn
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/08/gcd&exgcd/" rel="prev" title="gcd&exgcd">
+                gcd&exgcd <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">pretend-fal</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives">
+                
+                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-name">state.posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-name">state.tags</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-star"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">pretend-fal</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共9.6k字</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.1.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
