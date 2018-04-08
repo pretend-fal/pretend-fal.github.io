@@ -1828,7 +1828,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #4fff3c;
+  background: #44333e;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2588,4 +2588,15 @@ embed {
 }
 .links-of-blogroll-inline .links-of-blogroll-item {
   display: inline-block;
+}
+@media screen and (min-width: 1200px) {
+  body {
+    background-image: url("https://s7.postimg.org/96j2a64aj/timg.jpg");
+    background-repeat: repeat;
+    background-attachment: fixed;
+    background-position: 100% 100%;
+  }
+  #footer a {
+    color: #eee;
+  }
 }
