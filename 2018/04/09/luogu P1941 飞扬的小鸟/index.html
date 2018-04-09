@@ -114,25 +114,27 @@
 
 
 
-  <meta name="description" content="123int size = 256 &amp;lt;&amp;lt; 20; // 256MB  char p = (char)malloc(size) + size;  asm(&quot;movl %0, %%esp\n&quot; :: &quot;r&quot;(p)); 这段代码里可能有些关键字游戏地方没办法用，【摊手】">
-<meta name="keywords" content="tools of OI">
+  <meta name="description" content="这个题，一眼傻逼 DP， 状态： ​                    $f[i][j]$ 代表到达第 $i$ 行第 $j$ 列的最少点击数 有转移方程： ​                    $$f[i][j] = min\{f[i-1][j-up[i-1]*k]+k,f[i-1][j+dow[i-1]]\}$$ 因为首先我们可以从前一行的格子向上跳 up[i-1] 格，使之到达当前行，">
+<meta name="keywords" content="algorithm of OI,luogu,solution,DP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="手工开栈">
-<meta property="og:url" content="http://pretend-fal.github.io/2018/04/08/手工开栈/index.html">
+<meta property="og:title" content="luogu P1941 飞扬的小鸟">
+<meta property="og:url" content="http://pretend-fal.github.io/2018/04/09/luogu P1941 飞扬的小鸟/index.html">
 <meta property="og:site_name" content="The world which is god and mine">
-<meta property="og:description" content="123int size = 256 &amp;lt;&amp;lt; 20; // 256MB  char p = (char)malloc(size) + size;  asm(&quot;movl %0, %%esp\n&quot; :: &quot;r&quot;(p)); 这段代码里可能有些关键字游戏地方没办法用，【摊手】">
+<meta property="og:description" content="这个题，一眼傻逼 DP， 状态： ​                    $f[i][j]$ 代表到达第 $i$ 行第 $j$ 列的最少点击数 有转移方程： ​                    $$f[i][j] = min\{f[i-1][j-up[i-1]*k]+k,f[i-1][j+dow[i-1]]\}$$ 因为首先我们可以从前一行的格子向上跳 up[i-1] 格，使之到达当前行，">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-04-08T06:14:31.207Z">
+<meta property="og:image" content="https://s7.postimg.org/94m5kfh3f/image.png">
+<meta property="og:updated_time" content="2018-04-09T09:01:02.854Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="手工开栈">
-<meta name="twitter:description" content="123int size = 256 &amp;lt;&amp;lt; 20; // 256MB  char p = (char)malloc(size) + size;  asm(&quot;movl %0, %%esp\n&quot; :: &quot;r&quot;(p)); 这段代码里可能有些关键字游戏地方没办法用，【摊手】">
+<meta name="twitter:title" content="luogu P1941 飞扬的小鸟">
+<meta name="twitter:description" content="这个题，一眼傻逼 DP， 状态： ​                    $f[i][j]$ 代表到达第 $i$ 行第 $j$ 列的最少点击数 有转移方程： ​                    $$f[i][j] = min\{f[i-1][j-up[i-1]*k]+k,f[i-1][j+dow[i-1]]\}$$ 因为首先我们可以从前一行的格子向上跳 up[i-1] 格，使之到达当前行，">
+<meta name="twitter:image" content="https://s7.postimg.org/94m5kfh3f/image.png">
 
 
 
 
 
 
-  <link rel="canonical" href="http://pretend-fal.github.io/2018/04/08/手工开栈/"/>
+  <link rel="canonical" href="http://pretend-fal.github.io/2018/04/09/luogu P1941 飞扬的小鸟/"/>
 
 
 
@@ -142,7 +144,7 @@
   };
 </script>
 
-  <title>手工开栈 | The world which is god and mine</title>
+  <title>luogu P1941 飞扬的小鸟 | The world which is god and mine</title>
   
 
 
@@ -378,7 +380,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://pretend-fal.github.io/2018/04/08/手工开栈/">
+    <link itemprop="mainEntityOfPage" href="http://pretend-fal.github.io/2018/04/09/luogu P1941 飞扬的小鸟/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="pretend-fal">
@@ -395,7 +397,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">手工开栈</h1>
+          <h1 class="post-title" itemprop="name headline">luogu P1941 飞扬的小鸟</h1>
         
 
         <div class="post-meta">
@@ -408,7 +410,7 @@
               
                 <span class="post-meta-item-text">post.posted</span>
               
-              <time title="post.created" itemprop="dateCreated datePublished" datetime="2018-04-08T14:12:38+08:00">2018-04-08</time>
+              <time title="post.created" itemprop="dateCreated datePublished" datetime="2018-04-09T16:35:26+08:00">2018-04-09</time>
             
 
             
@@ -445,8 +447,18 @@
       
 
       
-        <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> size = <span class="number">256</span> &lt;&lt; <span class="number">20</span>; <span class="comment">// 256MB  </span></span><br><span class="line"><span class="keyword">char</span> p = (<span class="keyword">char</span>)<span class="built_in">malloc</span>(size) + size;  </span><br><span class="line"><span class="keyword">asm</span>(<span class="string">"movl %0, %%esp\n"</span> :: <span class="string">"r"</span>(p));</span><br></pre></td></tr></table></figure>
-<p>这段代码里可能有些关键字游戏地方没办法用，【摊手】</p>
+        <p>这个题，一眼傻逼 DP，</p>
+<p>状态：</p>
+<p>​                    $f[i][j]$ 代表到达第 $i$ 行第 $j$ 列的最少点击数</p>
+<p>有转移方程：</p>
+<p>​                    $$f[i][j] = min\{f[i-1][j-up[i-1]*k]+k,f[i-1][j+dow[i-1]]\}$$</p>
+<p>因为首先我们可以从前一行的格子向上跳 up[i-1] 格，使之到达当前行，由于向上跳没有限制[^坑点1]，所以要乘 $k$ ，而同样可以向下跳 dow[i-1] 格到达当前行，但是只能跳一次，不需要乘</p>
+<p>比如这个图</p>
+<p><img src="https://s7.postimg.org/94m5kfh3f/image.png" alt="image.png"></p>
+<p> 我们当前第 $i$ 行的褐色格子，可以由 $i-1$ 行的 $j+dow[i-1]$ 黄色格子下降 $dow[i-1]$ 格到达，也可以由 $j-up[i-1]$ 的红色格子向上跳一次 $up[i-1]$ 格到达，也可以由 $j-up[i-1]<em>2$ 的蓝色格子跳 $up[i-1]</em>2$ 格到达</p>
+<p>至于没有到达的情况，注意是输出穿越了几个柱子[^坑点2]，而不是通过了几列格子</p>
+<p>所以就直接枚举转移就好了，我这里用的是滚动数组</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> II int</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> IL inline</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> R register</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> I 10100</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt; <span class="function">IL <span class="keyword">void</span> <span class="title">of</span> <span class="params">(R T &amp;a)</span> </span>&#123;</span><br><span class="line">    R <span class="keyword">char</span> c=getchar (); R T w=<span class="number">1</span>, p=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (!<span class="built_in">isdigit</span>(c)) &#123; <span class="keyword">if</span>(c==<span class="string">'-'</span>) w=<span class="number">-1</span>; c=getchar (); &#125;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">isdigit</span>(c)) &#123; p=p*<span class="number">10</span>+c-<span class="string">'0'</span>; c=getchar (); &#125;</span><br><span class="line">    a=w*p;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt; <span class="function">IL <span class="keyword">void</span> <span class="title">Big</span> <span class="params">(R T &amp;a,R T b)</span> </span>&#123; a&lt;b?a=b:<span class="number">0</span>; &#125;</span><br><span class="line"><span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt; <span class="function">IL <span class="keyword">void</span> <span class="title">Sma</span> <span class="params">(R T &amp;a,R T b)</span> </span>&#123; a&gt;b?a=b:<span class="number">0</span>; &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* -------------------- Peipei -------------------- */</span></span><br><span class="line"></span><br><span class="line">II n,m,k,ans=<span class="number">1e9</span>,Inf=<span class="number">1e9</span>;</span><br><span class="line">II f[I], g[I], dow[I], up[I], bot[I], top[I], is[I];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// freopen("1.in","r",stdin);</span></span><br><span class="line"></span><br><span class="line">    of(n); of(m); of(k);</span><br><span class="line">    <span class="keyword">for</span>(R II i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">        of(up[i]), of(dow[i]), top[i]=m+<span class="number">1</span>;</span><br><span class="line">    top[n+<span class="number">1</span>]=m+<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(R II i=<span class="number">1</span>,x;i&lt;=k;i++) &#123;</span><br><span class="line">        of(x); x++; is[x]=<span class="number">1</span>;</span><br><span class="line">        of(bot[x]); of(top[x]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(R II i=<span class="number">1</span>,flag;i&lt;=n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        is[i]+=is[i<span class="number">-1</span>];</span><br><span class="line">        swap(f,g);</span><br><span class="line">        <span class="keyword">for</span>(R II j=<span class="number">1</span>;j&lt;=m;j++) f[j]=Inf;</span><br><span class="line">        <span class="keyword">for</span>(R II j=bot[i]+<span class="number">1</span>,to;j&lt;top[i];j++) &#123;</span><br><span class="line">            to=j+up[i];</span><br><span class="line">            <span class="keyword">if</span>(to&lt;top[i+<span class="number">1</span>]) Sma(f[to],g[j]+<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(R II j=m;j&gt;=m-up[i];j--) Sma(f[m],g[j]+<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">for</span>(R II j=up[i]+<span class="number">1</span>;j&lt;=m;j++) Sma(f[j],f[j-up[i]]+<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">for</span>(R II j=m;j&gt;=m-up[i];j--) Sma(f[m],f[j]+<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">for</span>(R II j=bot[i]+<span class="number">1</span>,to;j&lt;top[i];j++) &#123;</span><br><span class="line">            to=j-dow[i];</span><br><span class="line">            <span class="keyword">if</span>(to&gt;bot[i+<span class="number">1</span>]) Sma(f[to],g[j]);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(R II j=<span class="number">1</span>;j&lt;=bot[i+<span class="number">1</span>];j++) f[j]=Inf;</span><br><span class="line">        <span class="keyword">for</span>(R II j=m;j&gt;=top[i+<span class="number">1</span>];j--) f[j]=Inf;</span><br><span class="line"></span><br><span class="line">        flag=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(R II j=bot[i+<span class="number">1</span>]+<span class="number">1</span>;j&lt;top[i+<span class="number">1</span>];j++)</span><br><span class="line">            <span class="keyword">if</span>(f[j]&lt;Inf) &#123; flag=<span class="number">1</span>; <span class="keyword">break</span> ; &#125;</span><br><span class="line">        <span class="keyword">if</span>(!flag) &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"0\n%d\n"</span>,is[i]);</span><br><span class="line">            <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(R II i=<span class="number">1</span>;i&lt;=m;i++) Sma(ans,f[i]);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"1\n%d\n"</span>,ans);</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -467,7 +479,13 @@
       
         <div class="post-tags">
           
-            <a href="/tags/tools-of-OI/" rel="tag"># tools of OI</a>
+            <a href="/tags/algorithm-of-OI/" rel="tag"># algorithm of OI</a>
+          
+            <a href="/tags/luogu/" rel="tag"># luogu</a>
+          
+            <a href="/tags/solution/" rel="tag"># solution</a>
+          
+            <a href="/tags/DP/" rel="tag"># DP</a>
           
         </div>
       
@@ -480,8 +498,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/08/对拍/" rel="next" title="对拍">
-                <i class="fa fa-chevron-left"></i> 对拍
+              <a href="/2018/04/09/see this/" rel="next" title="see this">
+                <i class="fa fa-chevron-left"></i> see this
               </a>
             
           </div>
@@ -489,10 +507,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/04/08/ST表/" rel="prev" title="ST表">
-                ST表 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
