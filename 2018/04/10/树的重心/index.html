@@ -122,7 +122,7 @@
 <meta property="og:site_name" content="The world which is god and mine">
 <meta property="og:description" content="我们先介绍一棵树的重心的概念：  以所有节点为根，重心的最大子树最小， 最大子树指子树节点数最多  然后我们就可以用一个所谓的树形DP解决这个事情 就是我们先随便找一个 $root$ 然后 dfs(root) 每到一个点，计算其最大子树，然后比较，挑选出最大子树最小的那个节点，所有节点处理完后，就找到了重心 至于一个节点怎么算他的最大子树 在 dfs 中该节点的子树不用多说，但是，这并不是全部，我">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-04-10T02:30:33.567Z">
+<meta property="og:updated_time" content="2018-04-10T02:36:41.229Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="树的重心">
 <meta name="twitter:description" content="我们先介绍一棵树的重心的概念：  以所有节点为根，重心的最大子树最小， 最大子树指子树节点数最多  然后我们就可以用一个所谓的树形DP解决这个事情 就是我们先随便找一个 $root$ 然后 dfs(root) 每到一个点，计算其最大子树，然后比较，挑选出最大子树最小的那个节点，所有节点处理完后，就找到了重心 至于一个节点怎么算他的最大子树 在 dfs 中该节点的子树不用多说，但是，这并不是全部，我">
@@ -778,24 +778,7 @@
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.1.0"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-</script>
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.1.0"></script>
 
 
 
@@ -844,6 +827,46 @@
   
   
 
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+    
   
 
 
