@@ -114,24 +114,25 @@
 
 
 
-  <meta name="description" content="noip2017 翻车HEOI2018 翻车">
-<meta property="og:type" content="website">
-<meta property="og:title" content="schedule">
-<meta property="og:url" content="http://pretend-fal.github.io/schedule/index.html">
+  <meta name="description" content="我们先介绍一棵树的重心的概念：  以所有节点为根，重心的最大子树最小， 最大子树指子树节点数最多  然后我们就可以用一个所谓的树形DP解决这个事情 就是我们先随便找一个 $root$ 然后 dfs(root) 每到一个点，计算其最大子树，然后比较，挑选出最大子树最小的那个节点，所有节点处理完后，就找到了重心 至于一个节点怎么算他的最大子树 在 dfs 中该节点的子树不用多说，但是，这并不是全部，我">
+<meta name="keywords" content="algorithm of OI,树的重心,DP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="树的重心">
+<meta property="og:url" content="http://pretend-fal.github.io/2018/04/10/树的重心/index.html">
 <meta property="og:site_name" content="The world which is god and mine">
-<meta property="og:description" content="noip2017 翻车HEOI2018 翻车">
+<meta property="og:description" content="我们先介绍一棵树的重心的概念：  以所有节点为根，重心的最大子树最小， 最大子树指子树节点数最多  然后我们就可以用一个所谓的树形DP解决这个事情 就是我们先随便找一个 $root$ 然后 dfs(root) 每到一个点，计算其最大子树，然后比较，挑选出最大子树最小的那个节点，所有节点处理完后，就找到了重心 至于一个节点怎么算他的最大子树 在 dfs 中该节点的子树不用多说，但是，这并不是全部，我">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-04-08T11:08:20.665Z">
+<meta property="og:updated_time" content="2018-04-10T02:30:33.567Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="schedule">
-<meta name="twitter:description" content="noip2017 翻车HEOI2018 翻车">
+<meta name="twitter:title" content="树的重心">
+<meta name="twitter:description" content="我们先介绍一棵树的重心的概念：  以所有节点为根，重心的最大子树最小， 最大子树指子树节点数最多  然后我们就可以用一个所谓的树形DP解决这个事情 就是我们先随便找一个 $root$ 然后 dfs(root) 每到一个点，计算其最大子树，然后比较，挑选出最大子树最小的那个节点，所有节点处理完后，就找到了重心 至于一个节点怎么算他的最大子树 在 dfs 中该节点的子树不用多说，但是，这并不是全部，我">
 
 
 
 
 
 
-  <link rel="canonical" href="http://pretend-fal.github.io/schedule/"/>
+  <link rel="canonical" href="http://pretend-fal.github.io/2018/04/10/树的重心/"/>
 
 
 
@@ -141,7 +142,7 @@
   };
 </script>
 
-  <title>schedule | The world which is god and mine</title>
+  <title>树的重心 | The world which is god and mine</title>
   
 
 
@@ -363,49 +364,173 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://pretend-fal.github.io/2018/04/10/树的重心/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="pretend-fal">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="The world which is god and mine">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-<h1 class="post-title" itemprop="name headline">schedule</h1>
-
-<div class="post-meta">
-  
-  
-
-
-
-</div>
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <p>noip2017 翻车<br>HEOI2018 翻车</p>
-
+          <h1 class="post-title" itemprop="name headline">树的重心</h1>
         
-      </div>
+
+        <div class="post-meta">
+        
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">post.posted</span>
+              
+              <time title="post.created" itemprop="dateCreated datePublished" datetime="2018-04-10T10:19:46+08:00">2018-04-10</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p>我们先介绍一棵树的重心的概念：</p>
+<blockquote>
+<p>以所有节点为根，重心的最大子树最小， 最大子树指子树节点数最多</p>
+</blockquote>
+<p>然后我们就可以用一个所谓的树形DP解决这个事情</p>
+<p>就是我们先随便找一个 $root$ 然后 <code>dfs(root)</code> 每到一个点，计算其最大子树，然后比较，挑选出最大子树最小的那个节点，所有节点处理完后，就找到了重心</p>
+<p>至于一个节点怎么算他的最大子树</p>
+<p>在 dfs 中该节点的子树不用多说，但是，这并不是全部，我们现在要求得是，以当前节点为根的最大子树，那么这个节点还有一个子树就是他的父亲，请自行画图</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">IL <span class="keyword">void</span> <span class="title">get_root</span><span class="params">(R II x,R II fat)</span> </span>&#123;</span><br><span class="line">    siz[x]=<span class="number">1</span>; W[x]=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(R II i=head[x],go;i;i=aa[i].up)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(inq[go=aa[i].to] || go==fat) <span class="keyword">continue</span> ;</span><br><span class="line">        get_root(go,x);</span><br><span class="line">        Big(W[x],siz[go]);</span><br><span class="line">        siz[x]+=siz[go];</span><br><span class="line">    &#125;</span><br><span class="line">    Big(W[x],SIZ-siz[x]);</span><br><span class="line">    <span class="keyword">if</span>(W[x]&lt;W[root]) root=x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>而他父亲作为子树时的大小就是所有节点减去当前节点所代表的的子树大小。。。。。。。。。</p>
+<p>emmmmmmmmmmmmmmm</p>
+<p>还是自行画图</p>
+
       
     </div>
+
     
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/algorithm-of-OI/" rel="tag"># algorithm of OI</a>
+          
+            <a href="/tags/树的重心/" rel="tag"># 树的重心</a>
+          
+            <a href="/tags/DP/" rel="tag"># DP</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/10/点分治/" rel="next" title="点分治">
+                <i class="fa fa-chevron-left"></i> 点分治
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
 
 
 
-    
-    
-    
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         

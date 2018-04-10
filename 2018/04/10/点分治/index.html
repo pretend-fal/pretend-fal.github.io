@@ -114,24 +114,27 @@
 
 
 
-  <meta name="description" content="noip2017 翻车HEOI2018 翻车">
-<meta property="og:type" content="website">
-<meta property="og:title" content="schedule">
-<meta property="og:url" content="http://pretend-fal.github.io/schedule/index.html">
+  <meta name="description" content="这个知识点我就写过两道题，一个模板，一个聪聪可可 然后呢，我现在要写一下我对这个题的理解 首先呢，这个算法是用来解决一些树上路径问题的，我做的这两道题都是关于树上路径长度统计的 我们先有一颗树，然后树边上有边权  比如这棵树，我们要查询长度为 $6$ 的路径条数，然后我们选取一个节点，接下来我们遍历这个节点的子树，然后记录当前节点到达每个子树中每个节点的路径长度，最后分别组合，即为所有两端在当前节">
+<meta name="keywords" content="algorithm of OI,点分治">
+<meta property="og:type" content="article">
+<meta property="og:title" content="点分治">
+<meta property="og:url" content="http://pretend-fal.github.io/2018/04/10/点分治/index.html">
 <meta property="og:site_name" content="The world which is god and mine">
-<meta property="og:description" content="noip2017 翻车HEOI2018 翻车">
+<meta property="og:description" content="这个知识点我就写过两道题，一个模板，一个聪聪可可 然后呢，我现在要写一下我对这个题的理解 首先呢，这个算法是用来解决一些树上路径问题的，我做的这两道题都是关于树上路径长度统计的 我们先有一颗树，然后树边上有边权  比如这棵树，我们要查询长度为 $6$ 的路径条数，然后我们选取一个节点，接下来我们遍历这个节点的子树，然后记录当前节点到达每个子树中每个节点的路径长度，最后分别组合，即为所有两端在当前节">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-04-08T11:08:20.665Z">
+<meta property="og:image" content="https://s7.postimg.org/uh7w6qwff/image.png">
+<meta property="og:updated_time" content="2018-04-10T02:33:28.335Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="schedule">
-<meta name="twitter:description" content="noip2017 翻车HEOI2018 翻车">
+<meta name="twitter:title" content="点分治">
+<meta name="twitter:description" content="这个知识点我就写过两道题，一个模板，一个聪聪可可 然后呢，我现在要写一下我对这个题的理解 首先呢，这个算法是用来解决一些树上路径问题的，我做的这两道题都是关于树上路径长度统计的 我们先有一颗树，然后树边上有边权  比如这棵树，我们要查询长度为 $6$ 的路径条数，然后我们选取一个节点，接下来我们遍历这个节点的子树，然后记录当前节点到达每个子树中每个节点的路径长度，最后分别组合，即为所有两端在当前节">
+<meta name="twitter:image" content="https://s7.postimg.org/uh7w6qwff/image.png">
 
 
 
 
 
 
-  <link rel="canonical" href="http://pretend-fal.github.io/schedule/"/>
+  <link rel="canonical" href="http://pretend-fal.github.io/2018/04/10/点分治/"/>
 
 
 
@@ -141,7 +144,7 @@
   };
 </script>
 
-  <title>schedule | The world which is god and mine</title>
+  <title>点分治 | The world which is god and mine</title>
   
 
 
@@ -363,49 +366,174 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://pretend-fal.github.io/2018/04/10/点分治/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="pretend-fal">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="The world which is god and mine">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-<h1 class="post-title" itemprop="name headline">schedule</h1>
-
-<div class="post-meta">
-  
-  
-
-
-
-</div>
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <p>noip2017 翻车<br>HEOI2018 翻车</p>
-
+          <h1 class="post-title" itemprop="name headline">点分治</h1>
         
-      </div>
+
+        <div class="post-meta">
+        
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">post.posted</span>
+              
+              <time title="post.created" itemprop="dateCreated datePublished" datetime="2018-04-10T09:31:40+08:00">2018-04-10</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p>这个知识点我就写过两道题，一个模板，一个聪聪可可</p>
+<p>然后呢，我现在要写一下我对这个题的理解</p>
+<p>首先呢，这个算法是用来解决一些树上路径问题的，我做的这两道题都是关于树上路径长度统计的</p>
+<p>我们先有一颗树，然后树边上有边权</p>
+<p><img src="https://s7.postimg.org/uh7w6qwff/image.png" alt=""></p>
+<p>比如这棵树，我们要查询长度为 $6$ 的路径条数，然后我们选取一个节点，接下来我们遍历这个节点的子树，然后记录当前节点到达每个子树中每个节点的路径长度，最后分别组合，即为所有两端在当前节点的子树中的路径的所有情况</p>
+<p>所以我们有个方法就是枚举每个点，然后去搞，但是显然，点的选择会影响最后的复杂度，比如一条链，如果每次都选顶端，那么就是 $O(n^2)$ 但是如果每次都选中间，就是 $O(nlogn)$， 可以自行画图理解下</p>
+<p>我们处理完当前节点后，会处理该节点的所有子树，而且处理子树的时候所需要的点就是该子树，不会受到别的子树的影响，因为所有跨子树的情况我们都已经在当前节点处理好了，这样子我们处理子树的复杂度就和子树大小有关了</p>
+<p>然后我们可以看出，如果当前节点的最大子树越小，最后的复杂度就越低，那么我们就会去想一下重心[^至于不会重心的同学，请在文末查看]，然后我们找到重心之后，会去计算路径，再然后，我们会去处理这个重心的子树，处理这个子树的方式同理，找到这颗子树的重心，然后像刚刚一样处理，不过在处理某一个子树的重心时，我们会用现在所处理树的 $size$ 进行处理，就是比如上面的图，处理 $3$ 这个子树时，大小是 $3$ </p>
+<p>至于代码，可以参考另一篇blog：<a href="">luogu P2634 [国家集训队]聪聪可可</a></p>
+<p><a href="">重心学习</a></p>
+
       
     </div>
+
     
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/algorithm-of-OI/" rel="tag"># algorithm of OI</a>
+          
+            <a href="/tags/点分治/" rel="tag"># 点分治</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/10/luogu P2634 [国家集训队]聪聪可可/" rel="next" title="luogu P2634 [国家集训队]聪聪可可">
+                <i class="fa fa-chevron-left"></i> luogu P2634 [国家集训队]聪聪可可
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/10/树的重心/" rel="prev" title="树的重心">
+                树的重心 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
 
 
 
-    
-    
-    
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -653,24 +781,7 @@
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.1.0"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-</script>
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.1.0"></script>
 
 
 
@@ -719,6 +830,46 @@
   
   
 
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+    
   
 
 
