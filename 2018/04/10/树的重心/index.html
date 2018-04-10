@@ -115,7 +115,7 @@
 
 
   <meta name="description" content="我们先介绍一棵树的重心的概念：  以所有节点为根，重心的最大子树最小， 最大子树指子树节点数最多  然后我们就可以用一个所谓的树形DP解决这个事情 就是我们先随便找一个 $root$ 然后 dfs(root) 每到一个点，计算其最大子树，然后比较，挑选出最大子树最小的那个节点，所有节点处理完后，就找到了重心 至于一个节点怎么算他的最大子树 在 dfs 中该节点的子树不用多说，但是，这并不是全部，我">
-<meta name="keywords" content="algorithm of OI,树的重心,DP">
+<meta name="keywords" content="algorithm of OI,DP,树的重心">
 <meta property="og:type" content="article">
 <meta property="og:title" content="树的重心">
 <meta property="og:url" content="http://pretend-fal.github.io/2018/04/10/树的重心/index.html">
@@ -247,7 +247,7 @@
         
           
   
-  <li class="menu-item menu-item-about menu-item-active">
+  <li class="menu-item menu-item-about">
     <a href="/about/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-user"></i> <br />about</a>
 </li>
@@ -267,7 +267,7 @@
         
           
   
-  <li class="menu-item menu-item-categories">
+  <li class="menu-item menu-item-categories menu-item-active">
     <a href="/categories/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-th"></i> <br />categories</a>
 </li>
@@ -479,9 +479,9 @@
           
             <a href="/tags/algorithm-of-OI/" rel="tag"># algorithm of OI</a>
           
-            <a href="/tags/树的重心/" rel="tag"># 树的重心</a>
-          
             <a href="/tags/DP/" rel="tag"># DP</a>
+          
+            <a href="/tags/树的重心/" rel="tag"># 树的重心</a>
           
         </div>
       
@@ -604,9 +604,7 @@
                     
                       
                     
-                      
-                    
-                    <span class="site-state-item-count">12</span>
+                    <span class="site-state-item-count">11</span>
                     <span class="site-state-item-name">state.tags</span>
                   </a>
                 </div>
@@ -847,24 +845,7 @@
         }
     });
 </script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-</script>
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
     
   
@@ -881,5 +862,22 @@
 
   
 
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/"});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/"});</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end --></body>
 </html>
