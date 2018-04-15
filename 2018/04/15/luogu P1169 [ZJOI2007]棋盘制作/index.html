@@ -114,27 +114,27 @@
 
 
 
-  <meta name="description" content="这个知识点我就写过两道题，一个模板，一个聪聪可可 然后呢，我现在要写一下我对这个题的理解 首先呢，这个算法是用来解决一些树上路径问题的，我做的这两道题都是关于树上路径长度统计的 我们先有一颗树，然后树边上有边权  比如这棵树，我们要查询长度为 $6$ 的路径条数，然后我们选取一个节点，接下来我们遍历这个节点的子树，然后记录当前节点到达每个子树中每个节点的路径长度，最后分别组合，即为所有两端在当前节">
-<meta name="keywords" content="algorithm of OI,点分治">
+  <meta name="description" content="这个题是悬线法的练习题，十分 nice，我第一次做的时候，十分尬，问的白学家，写了好久，然后才过，刚刚写了下，还OK吧，1A 写一下这个题的思路 给定一个 01 矩阵，找一个最大的正方形矩阵，和一个长方形矩阵，要求这两个矩阵的 01 是相见分布的就像样例里的这个图，正方形就是红圈这个矩阵  至于为什么用悬线法，我们考虑一个合法的 01 矩阵，我们可以选择其中的任意列作为我们所找的线，然后这条线上的">
+<meta name="keywords" content="problem of OI,悬线法,luogu,solution">
 <meta property="og:type" content="article">
-<meta property="og:title" content="点分治">
-<meta property="og:url" content="http://pretend-fal.github.io/2018/04/10/点分治/index.html">
+<meta property="og:title" content="luogu P1169 [ZJOI2007]棋盘制作">
+<meta property="og:url" content="http://pretend-fal.github.io/2018/04/15/luogu P1169 [ZJOI2007]棋盘制作/index.html">
 <meta property="og:site_name" content="The world which is god and mine">
-<meta property="og:description" content="这个知识点我就写过两道题，一个模板，一个聪聪可可 然后呢，我现在要写一下我对这个题的理解 首先呢，这个算法是用来解决一些树上路径问题的，我做的这两道题都是关于树上路径长度统计的 我们先有一颗树，然后树边上有边权  比如这棵树，我们要查询长度为 $6$ 的路径条数，然后我们选取一个节点，接下来我们遍历这个节点的子树，然后记录当前节点到达每个子树中每个节点的路径长度，最后分别组合，即为所有两端在当前节">
+<meta property="og:description" content="这个题是悬线法的练习题，十分 nice，我第一次做的时候，十分尬，问的白学家，写了好久，然后才过，刚刚写了下，还OK吧，1A 写一下这个题的思路 给定一个 01 矩阵，找一个最大的正方形矩阵，和一个长方形矩阵，要求这两个矩阵的 01 是相见分布的就像样例里的这个图，正方形就是红圈这个矩阵  至于为什么用悬线法，我们考虑一个合法的 01 矩阵，我们可以选择其中的任意列作为我们所找的线，然后这条线上的">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://s7.postimg.org/uh7w6qwff/image.png">
-<meta property="og:updated_time" content="2018-04-10T02:35:54.318Z">
+<meta property="og:image" content="https://s7.postimg.cc/6wuzn82sb/image.png">
+<meta property="og:updated_time" content="2018-04-15T06:47:12.336Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="点分治">
-<meta name="twitter:description" content="这个知识点我就写过两道题，一个模板，一个聪聪可可 然后呢，我现在要写一下我对这个题的理解 首先呢，这个算法是用来解决一些树上路径问题的，我做的这两道题都是关于树上路径长度统计的 我们先有一颗树，然后树边上有边权  比如这棵树，我们要查询长度为 $6$ 的路径条数，然后我们选取一个节点，接下来我们遍历这个节点的子树，然后记录当前节点到达每个子树中每个节点的路径长度，最后分别组合，即为所有两端在当前节">
-<meta name="twitter:image" content="https://s7.postimg.org/uh7w6qwff/image.png">
+<meta name="twitter:title" content="luogu P1169 [ZJOI2007]棋盘制作">
+<meta name="twitter:description" content="这个题是悬线法的练习题，十分 nice，我第一次做的时候，十分尬，问的白学家，写了好久，然后才过，刚刚写了下，还OK吧，1A 写一下这个题的思路 给定一个 01 矩阵，找一个最大的正方形矩阵，和一个长方形矩阵，要求这两个矩阵的 01 是相见分布的就像样例里的这个图，正方形就是红圈这个矩阵  至于为什么用悬线法，我们考虑一个合法的 01 矩阵，我们可以选择其中的任意列作为我们所找的线，然后这条线上的">
+<meta name="twitter:image" content="https://s7.postimg.cc/6wuzn82sb/image.png">
 
 
 
 
 
 
-  <link rel="canonical" href="http://pretend-fal.github.io/2018/04/10/点分治/"/>
+  <link rel="canonical" href="http://pretend-fal.github.io/2018/04/15/luogu P1169 [ZJOI2007]棋盘制作/"/>
 
 
 
@@ -144,7 +144,7 @@
   };
 </script>
 
-  <title>点分治 | The world which is god and mine</title>
+  <title>luogu P1169 [ZJOI2007]棋盘制作 | The world which is god and mine</title>
   
 
 
@@ -380,7 +380,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://pretend-fal.github.io/2018/04/10/点分治/">
+    <link itemprop="mainEntityOfPage" href="http://pretend-fal.github.io/2018/04/15/luogu P1169 [ZJOI2007]棋盘制作/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="pretend-fal">
@@ -397,7 +397,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">点分治</h1>
+          <h1 class="post-title" itemprop="name headline">luogu P1169 [ZJOI2007]棋盘制作</h1>
         
 
         <div class="post-meta">
@@ -410,7 +410,7 @@
               
                 <span class="post-meta-item-text">post.posted</span>
               
-              <time title="post.created" itemprop="dateCreated datePublished" datetime="2018-04-10T09:31:40+08:00">2018-04-10</time>
+              <time title="post.created" itemprop="dateCreated datePublished" datetime="2018-04-15T14:22:35+08:00">2018-04-15</time>
             
 
             
@@ -447,17 +447,16 @@
       
 
       
-        <p>这个知识点我就写过两道题，一个模板，一个聪聪可可</p>
-<p>然后呢，我现在要写一下我对这个题的理解</p>
-<p>首先呢，这个算法是用来解决一些树上路径问题的，我做的这两道题都是关于树上路径长度统计的</p>
-<p>我们先有一颗树，然后树边上有边权</p>
-<p><img src="https://s7.postimg.org/uh7w6qwff/image.png" alt=""></p>
-<p>比如这棵树，我们要查询长度为 $6$ 的路径条数，然后我们选取一个节点，接下来我们遍历这个节点的子树，然后记录当前节点到达每个子树中每个节点的路径长度，最后分别组合，即为所有两端在当前节点的子树中的路径的所有情况</p>
-<p>所以我们有个方法就是枚举每个点，然后去搞，但是显然，点的选择会影响最后的复杂度，比如一条链，如果每次都选顶端，那么就是 $O(n^2)$ 但是如果每次都选中间，就是 $O(nlogn)$， 可以自行画图理解下</p>
-<p>我们处理完当前节点后，会处理该节点的所有子树，而且处理子树的时候所需要的点就是该子树，不会受到别的子树的影响，因为所有跨子树的情况我们都已经在当前节点处理好了，这样子我们处理子树的复杂度就和子树大小有关了</p>
-<p>然后我们可以看出，如果当前节点的最大子树越小，最后的复杂度就越低，那么我们就会去想一下重心[^至于不会重心的同学，请在文末查看]，然后我们找到重心之后，会去计算路径，再然后，我们会去处理这个重心的子树，处理这个子树的方式同理，找到这颗子树的重心，然后像刚刚一样处理，不过在处理某一个子树的重心时，我们会用现在所处理树的 $size$ 进行处理，就是比如上面的图，处理 $3$ 这个子树时，大小是 $3$ </p>
-<p>至于代码，可以参考另一篇blog：<a href="http://pretend-fal.ml/2018/04/10/luogu%20P2634%20[%E5%9B%BD%E5%AE%B6%E9%9B%86%E8%AE%AD%E9%98%9F]%E8%81%AA%E8%81%AA%E5%8F%AF%E5%8F%AF/#post.more" target="_blank" rel="noopener">luogu P2634 [国家集训队]聪聪可可</a></p>
-<p><a href="http://pretend-fal.ml/2018/04/10/%E6%A0%91%E7%9A%84%E9%87%8D%E5%BF%83/" target="_blank" rel="noopener">重心学习</a></p>
+        <p>这个题是悬线法的练习题，十分 nice，我第一次做的时候，十分尬，问的白学家，写了好久，然后才过，刚刚写了下，还OK吧，1A</p>
+<p>写一下这个题的思路</p>
+<p>给定一个 01 矩阵，找一个最大的正方形矩阵，和一个长方形矩阵，要求这两个矩阵的 01 是相见分布的就像样例里的这个图，正方形就是红圈这个矩阵</p>
+<p><img src="https://s7.postimg.cc/6wuzn82sb/image.png" alt=""></p>
+<p>至于为什么用悬线法，我们考虑一个合法的 01 矩阵，我们可以选择其中的任意列作为我们所找的线，然后这条线上的任何一个点的 $l[i][j]$ 和 $r[i][j]$ 的最小值就是这个矩阵的长，即</p>
+<p>$$l_{矩阵}=min\{l[i][j]\} (i,j)∈所选线$$</p>
+<p>$$r_{矩阵}=min\{r[i][j]\} (i,j)∈所选线$$</p>
+<p>设我们选的线是褐色格子，那么 $l_{矩阵}$ 就是最左侧的那一列，没有 $r_{矩阵}$ </p>
+<p>然后我们就可以用悬线法来处理 $l[i][j], r[i][j]$ 然后 $for$ 就OK了</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> II int</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> IL inline</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> R register</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> I 2010</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt; <span class="function">IL <span class="keyword">void</span> <span class="title">of</span> <span class="params">(R T &amp;a)</span> </span>&#123;</span><br><span class="line">	R <span class="keyword">char</span> c=getchar (); R T w=<span class="number">1</span>, p=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span> (!<span class="built_in">isdigit</span>(c)) &#123; <span class="keyword">if</span>(c==<span class="string">'-'</span>) w=<span class="number">-1</span>; c=getchar (); &#125;</span><br><span class="line">	<span class="keyword">while</span> (<span class="built_in">isdigit</span>(c)) &#123; p=p*<span class="number">10</span>+c-<span class="string">'0'</span>; c=getchar (); &#125;</span><br><span class="line">	a=w*p;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt; <span class="function">IL <span class="keyword">void</span> <span class="title">Big</span> <span class="params">(R T &amp;a,R T b)</span> </span>&#123; a&lt;b?a=b:<span class="number">0</span>; &#125;</span><br><span class="line"><span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt; <span class="function">IL <span class="keyword">void</span> <span class="title">Sma</span> <span class="params">(R T &amp;a,R T b)</span> </span>&#123; a&gt;b?a=b:<span class="number">0</span>; &#125;</span><br><span class="line"><span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt; <span class="function">IL <span class="keyword">void</span> <span class="title">Swap</span><span class="params">(R T &amp;a,R T &amp;b)</span> </span>&#123; R T c=b;b=a;a=c; &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* -------------------- Peipei -------------------- */</span></span><br><span class="line"></span><br><span class="line">II n,m,ans1,ans2;	</span><br><span class="line">II a[I][I], l[I][I], r[I][I];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">//freopen("1.in","r",stdin);</span></span><br><span class="line"></span><br><span class="line">	of(n); of(m);</span><br><span class="line">	<span class="keyword">for</span>(R II i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">	<span class="keyword">for</span>(R II j=<span class="number">1</span>;j&lt;=m;j++) of(a[i][j]);</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">for</span>(R II i=<span class="number">1</span>;i&lt;=n;i++) </span><br><span class="line">	<span class="keyword">for</span>(R II j=<span class="number">2</span>;j&lt;=m;j++)</span><br><span class="line">		<span class="keyword">if</span>(a[i][j]==(a[i][j<span class="number">-1</span>]^<span class="number">1</span>)) l[i][j]=l[i][j<span class="number">-1</span>]+<span class="number">1</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">for</span>(R II i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">	<span class="keyword">for</span>(R II j=m<span class="number">-1</span>;j;j--) </span><br><span class="line">		<span class="keyword">if</span>(a[i][j]==(a[i][j+<span class="number">1</span>]^<span class="number">1</span>)) r[i][j]=r[i][j+<span class="number">1</span>]+<span class="number">1</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">for</span>(R II j=<span class="number">1</span>,len=<span class="number">1</span>,ll,rr;j&lt;=m;j++)</span><br><span class="line">	&#123;</span><br><span class="line">		len=<span class="number">1</span>, ll=l[<span class="number">1</span>][j], rr=r[<span class="number">1</span>][j];</span><br><span class="line">		Big(ans1,min(len,ll+rr+<span class="number">1</span>)*min(len,ll+rr+<span class="number">1</span>));</span><br><span class="line">		Big(ans2,len*(ll+rr+<span class="number">1</span>));</span><br><span class="line">		<span class="keyword">for</span>(R II i=<span class="number">2</span>;i&lt;=n;i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span>(a[i][j]==(a[i<span class="number">-1</span>][j]^<span class="number">1</span>)) &#123;</span><br><span class="line">				len++;</span><br><span class="line">				Sma(ll,l[i][j]);</span><br><span class="line">				Sma(rr,r[i][j]);</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">				len=<span class="number">1</span>;</span><br><span class="line">				ll=l[i][j];</span><br><span class="line">				rr=r[i][j];</span><br><span class="line">			&#125;</span><br><span class="line">			Big(ans1,min(len,ll+rr+<span class="number">1</span>)*min(len,ll+rr+<span class="number">1</span>));</span><br><span class="line">			Big(ans2,len*(ll+rr+<span class="number">1</span>));</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n%d\n"</span>,ans1,ans2);</span><br><span class="line">	<span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -478,9 +477,13 @@
       
         <div class="post-tags">
           
-            <a href="/tags/algorithm-of-OI/" rel="tag"># algorithm of OI</a>
+            <a href="/tags/problem-of-OI/" rel="tag"># problem of OI</a>
           
-            <a href="/tags/点分治/" rel="tag"># 点分治</a>
+            <a href="/tags/悬线法/" rel="tag"># 悬线法</a>
+          
+            <a href="/tags/luogu/" rel="tag"># luogu</a>
+          
+            <a href="/tags/solution/" rel="tag"># solution</a>
           
         </div>
       
@@ -493,8 +496,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/10/luogu P2634 [国家集训队]聪聪可可/" rel="next" title="luogu P2634 [国家集训队]聪聪可可">
-                <i class="fa fa-chevron-left"></i> luogu P2634 [国家集训队]聪聪可可
+              <a href="/2018/04/15/悬线法/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
               </a>
             
           </div>
@@ -502,10 +505,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/04/10/树的重心/" rel="prev" title="树的重心">
-                树的重心 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
