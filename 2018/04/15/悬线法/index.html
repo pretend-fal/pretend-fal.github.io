@@ -115,15 +115,16 @@
 
 
   <meta name="description" content="Q：是什么呢？ A：就是很nb的东西； Q：干什么的呢？ A：就是用来求最优矩阵的；  首先我们有一个矩阵，然后我们需要一个最优矩阵；我一般能想到的就是n^3暴力前缀和，昨天还写了个注意事项呢；但是，今天就被怼死了； 那么我们就要学一下悬线法了；  顾名思义，就是悬好多线，然后左右扩展，得到最优矩阵；  O(nm)；然后呢，我们先要找悬线；枚举每一行/列，令当前点 $a[i][j]$；令o为只是该">
+<meta name="keywords" content="悬线法,algorithmof OI">
 <meta property="og:type" content="article">
-<meta property="og:title" content="The world which is god and mine">
+<meta property="og:title" content="luogu P1169 [ZJOI2007]棋盘制作">
 <meta property="og:url" content="http://pretend-fal.github.io/2018/04/15/悬线法/index.html">
 <meta property="og:site_name" content="The world which is god and mine">
 <meta property="og:description" content="Q：是什么呢？ A：就是很nb的东西； Q：干什么的呢？ A：就是用来求最优矩阵的；  首先我们有一个矩阵，然后我们需要一个最优矩阵；我一般能想到的就是n^3暴力前缀和，昨天还写了个注意事项呢；但是，今天就被怼死了； 那么我们就要学一下悬线法了；  顾名思义，就是悬好多线，然后左右扩展，得到最优矩阵；  O(nm)；然后呢，我们先要找悬线；枚举每一行/列，令当前点 $a[i][j]$；令o为只是该">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-04-15T06:50:35.775Z">
+<meta property="og:updated_time" content="2018-04-15T06:53:33.767Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="The world which is god and mine">
+<meta name="twitter:title" content="luogu P1169 [ZJOI2007]棋盘制作">
 <meta name="twitter:description" content="Q：是什么呢？ A：就是很nb的东西； Q：干什么的呢？ A：就是用来求最优矩阵的；  首先我们有一个矩阵，然后我们需要一个最优矩阵；我一般能想到的就是n^3暴力前缀和，昨天还写了个注意事项呢；但是，今天就被怼死了； 那么我们就要学一下悬线法了；  顾名思义，就是悬好多线，然后左右扩展，得到最优矩阵；  O(nm)；然后呢，我们先要找悬线；枚举每一行/列，令当前点 $a[i][j]$；令o为只是该">
 
 
@@ -141,7 +142,7 @@
   };
 </script>
 
-  <title> | The world which is god and mine</title>
+  <title>luogu P1169 [ZJOI2007]棋盘制作 | The world which is god and mine</title>
   
 
 
@@ -394,7 +395,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">luogu P1169 [ZJOI2007]棋盘制作</h1>
         
 
         <div class="post-meta">
@@ -459,7 +460,7 @@
 <p>就是说，我们一个点可以顺接左侧的点，那么我这个点的左侧最远合法距离=左侧的点左侧最远合法距离+1</p>
 <p>否则就是当前一个点，即 =1</p>
 <p>然后就好了；<br>$r[i][j]$ 的方式和这个一样；<br>所以就每次都跟新下答案；</p>
-<p>至于例题可以看这个</p>
+<p>至于例题可以看<a href="http://pretend-fal.ml/2018/04/15/luogu%20P1169%20[ZJOI2007]%E6%A3%8B%E7%9B%98%E5%88%B6%E4%BD%9C/" target="_blank" rel="noopener">这个</a></p>
 <hr>
 <p>Q：还是不太懂。。。。。。。</p>
 <p>A：gun~</p>
@@ -480,6 +481,14 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/悬线法/" rel="tag"># 悬线法</a>
+          
+            <a href="/tags/algorithmof-OI/" rel="tag"># algorithmof OI</a>
+          
+        </div>
       
 
       
@@ -606,7 +615,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">12</span>
+                      
+                    
+                    <span class="site-state-item-count">13</span>
                     <span class="site-state-item-name">state.tags</span>
                   </a>
                 </div>
@@ -778,24 +789,7 @@
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.1.0"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-</script>
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.1.0"></script>
 
 
 
@@ -844,6 +838,46 @@
   
   
 
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+    
   
 
 
