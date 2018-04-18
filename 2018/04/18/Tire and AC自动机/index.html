@@ -114,21 +114,22 @@
 
 
 
-  <meta name="description" content="写在前面 Trie 是一个前置知识，所以我就从网上找了些介绍，然后借(Ctrl+C)鉴(Ctrl+V)过来了，所以要是有些神乎其神的地方我要是解释不了，大家可以自行百度 QAQ 然后是 AC自动机 这个是这篇 blog 主要讲的东西，但是我觉得对于这种字符串的东西，还是口胡的地方比较多，所以有关 AC自动机 的篇幅也不会太长，主要是在黑板上画来画去  然后我们就开始了   Trie or 字典树#">
-<meta name="keywords" content="Tire,AC自动机,algorithm of OI">
+  <meta name="description" content="写在前面 Trie 是一个前置知识，所以我就从网上找了些介绍，然后借(Ctrl+C)鉴(Ctrl+V)过来了，所以要是有些神乎其神的地方我要是解释不了，大家可以自行百度 QAQ 然后是 AC自动机 这个是这篇 blog 主要讲的东西，但是我觉得对于这种字符串的东西，还是口胡的地方比较多，所以有关 AC自动机 的篇幅也不会太长，主要是在黑板上画来画去  然后我们就开始了   Trie or 字典树字">
+<meta name="keywords" content="algorithm of OI,Tire,AC自动机">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Tire and AC自动机">
 <meta property="og:url" content="http://pretend-fal.github.io/2018/04/18/Tire and AC自动机/index.html">
 <meta property="og:site_name" content="The world which is god and mine">
-<meta property="og:description" content="写在前面 Trie 是一个前置知识，所以我就从网上找了些介绍，然后借(Ctrl+C)鉴(Ctrl+V)过来了，所以要是有些神乎其神的地方我要是解释不了，大家可以自行百度 QAQ 然后是 AC自动机 这个是这篇 blog 主要讲的东西，但是我觉得对于这种字符串的东西，还是口胡的地方比较多，所以有关 AC自动机 的篇幅也不会太长，主要是在黑板上画来画去  然后我们就开始了   Trie or 字典树#">
+<meta property="og:description" content="写在前面 Trie 是一个前置知识，所以我就从网上找了些介绍，然后借(Ctrl+C)鉴(Ctrl+V)过来了，所以要是有些神乎其神的地方我要是解释不了，大家可以自行百度 QAQ 然后是 AC自动机 这个是这篇 blog 主要讲的东西，但是我觉得对于这种字符串的东西，还是口胡的地方比较多，所以有关 AC自动机 的篇幅也不会太长，主要是在黑板上画来画去  然后我们就开始了   Trie or 字典树字">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https://s7.postimg.cc/4r2zhnowb/image.png">
 <meta property="og:image" content="https://s7.postimg.cc/56e9acxvf/image.png">
 <meta property="og:image" content="https://s7.postimg.cc/w486cb8aj/image.png">
-<meta property="og:updated_time" content="2018-04-18T08:40:42.495Z">
+<meta property="og:updated_time" content="2018-04-18T08:47:20.337Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Tire and AC自动机">
-<meta name="twitter:description" content="写在前面 Trie 是一个前置知识，所以我就从网上找了些介绍，然后借(Ctrl+C)鉴(Ctrl+V)过来了，所以要是有些神乎其神的地方我要是解释不了，大家可以自行百度 QAQ 然后是 AC自动机 这个是这篇 blog 主要讲的东西，但是我觉得对于这种字符串的东西，还是口胡的地方比较多，所以有关 AC自动机 的篇幅也不会太长，主要是在黑板上画来画去  然后我们就开始了   Trie or 字典树#">
-<meta name="twitter:image" content="https://s7.postimg.cc/56e9acxvf/image.png">
+<meta name="twitter:description" content="写在前面 Trie 是一个前置知识，所以我就从网上找了些介绍，然后借(Ctrl+C)鉴(Ctrl+V)过来了，所以要是有些神乎其神的地方我要是解释不了，大家可以自行百度 QAQ 然后是 AC自动机 这个是这篇 blog 主要讲的东西，但是我觉得对于这种字符串的东西，还是口胡的地方比较多，所以有关 AC自动机 的篇幅也不会太长，主要是在黑板上画来画去  然后我们就开始了   Trie or 字典树字">
+<meta name="twitter:image" content="https://s7.postimg.cc/4r2zhnowb/image.png">
 
 
 
@@ -454,12 +455,10 @@
 <li>然后我们就开始了</li>
 </ul>
 <hr>
-<h1 id="Trie-or-字典树"><a href="#Trie-or-字典树" class="headerlink" title="Trie or 字典树"></a>Trie or 字典树</h1><p>#####字典树的概念    </p>
-<ul>
+<h1 id="Trie-or-字典树"><a href="#Trie-or-字典树" class="headerlink" title="Trie or 字典树"></a>Trie or 字典树</h1><h5 id="字典树的概念"><a href="#字典树的概念" class="headerlink" title="字典树的概念"></a>字典树的概念</h5><ul>
 <li>字典树，因为它的搜索快捷的特性被单词搜索系统使用，故又称单词查找树。它是一种树形结构的数据结构。之所以快速，是因为它用空间代替了速度。</li>
 </ul>
-<p>#####那什么是Trie？？！</p>
-<ul>
+<h5 id="那什么是Trie？？！"><a href="#那什么是Trie？？！" class="headerlink" title="那什么是Trie？？！"></a>那什么是Trie？？！</h5><ul>
 <li>其实就是把一些字符串连到一个根节点上，既然有根节点了，那一定有了一颗树，那么，我们把这些串形成的树叫作 <strong>Trie</strong>；</li>
 </ul>
 <h5 id="字典树有三个基本性质："><a href="#字典树有三个基本性质：" class="headerlink" title="字典树有三个基本性质："></a>字典树有三个基本性质：</h5><ul>
@@ -467,8 +466,7 @@
 <li>从根节点到某一个节点，路径上经过的字符连接起来，就是该节点对应的字符串</li>
 <li>每个节点的所有子节点包含的字符都不相同。</li>
 </ul>
-<h4 id="But-why？？！"><a href="#But-why？？！" class="headerlink" title="But why？？！"></a>But why？？！</h4><p>####because 这是基本性质</p>
-<p>代码 code ：</p>
+<h4 id="But-why？？！"><a href="#But-why？？！" class="headerlink" title="But why？？！"></a>But why？？！</h4><h4 id="because-这是基本性质"><a href="#because-这是基本性质" class="headerlink" title="because 这是基本性质"></a>because 这是基本性质</h4><p>代码 code ：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> II int</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> IL inline</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> R register</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> I 123456</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt; <span class="function">IL <span class="keyword">void</span> <span class="title">of</span> <span class="params">(R T &amp;a)</span> </span>&#123;</span><br><span class="line">	R <span class="keyword">char</span> c=getchar (); R T w=<span class="number">1</span>, p=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span> (!<span class="built_in">isdigit</span>(c)) &#123; <span class="keyword">if</span>(c==<span class="string">'-'</span>) w=<span class="number">-1</span>; c=getchar (); &#125;</span><br><span class="line">	<span class="keyword">while</span> (<span class="built_in">isdigit</span>(c)) &#123; p=p*<span class="number">10</span>+c-<span class="string">'0'</span>; c=getchar (); &#125;</span><br><span class="line">	a=w*p;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* -------------------- Peipei -------------------- */</span></span><br><span class="line"></span><br><span class="line">II n,Q,len,tot,root;</span><br><span class="line">II a[I];</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">POI</span> &#123;</span> II up[<span class="number">10</span>]; II is; &#125; Tr[I];</span><br><span class="line"><span class="function">IL II <span class="title">npoi</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	tot++;</span><br><span class="line">	<span class="keyword">for</span>(R II i=<span class="number">0</span>;i&lt;=<span class="number">9</span>;i++) </span><br><span class="line">		Tr[tot].up[i]=<span class="number">0</span>;</span><br><span class="line">	Tr[tot].is=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">return</span> tot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">IL <span class="keyword">void</span> <span class="title">in</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	of(len);</span><br><span class="line">	<span class="keyword">for</span>(R II i=<span class="number">1</span>;i&lt;=len;i++) <span class="built_in">scanf</span>(<span class="string">"%1d"</span>,&amp;a[i]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">IL <span class="keyword">void</span> <span class="title">join</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	R II pi=root;</span><br><span class="line">	<span class="keyword">for</span>(R II i=<span class="number">1</span>;i&lt;=len;i++) &#123;</span><br><span class="line">		<span class="keyword">if</span>(!Tr[pi].up[a[i]]) </span><br><span class="line">			Tr[pi].up[a[i]]=npoi();</span><br><span class="line">		pi=Tr[pi].up[a[i]];</span><br><span class="line">	&#125;</span><br><span class="line">	Tr[pi].is=<span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">IL <span class="keyword">bool</span> <span class="title">ask</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	R II pi=root;</span><br><span class="line">	<span class="keyword">for</span>(R II i=<span class="number">1</span>;i&lt;=len;i++) &#123;</span><br><span class="line">		<span class="keyword">if</span>(!Tr[pi].up[a[i]]) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">		pi=Tr[pi].up[a[i]];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> Tr[pi].is;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	of(n);</span><br><span class="line">	<span class="keyword">for</span>(R II i=<span class="number">1</span>;i&lt;=n;i++) in(), join();</span><br><span class="line">	</span><br><span class="line">	of(Q);</span><br><span class="line">	<span class="keyword">while</span> ( Q -- ) &#123;</span><br><span class="line">		in();</span><br><span class="line">		ask() ? <span class="built_in">puts</span>(<span class="string">"Y"</span>) : <span class="built_in">puts</span>(<span class="string">"N"</span>) ;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>看不懂我的代码？？！ 我并没有办法。。。。。。。。。。。。。。</p>
 <p>接下来是网上的的介绍，我就Ctrl+C+V过来了，我也没怎么看，ennnnnnnnn 大概是些定义，可以了解下</p>
@@ -492,8 +490,7 @@
 </ul>
 <p>然后 Trie 我们就讲到这里</p>
 <hr>
-<p>#AC自动机</p>
-<p><em>伪·自动AC机 nice</em></p>
+<h1 id="AC自动机"><a href="#AC自动机" class="headerlink" title="AC自动机"></a>AC自动机</h1><p><em>伪·自动AC机 nice</em></p>
 <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><h5 id="了解"><a href="#了解" class="headerlink" title="了解"></a>了解</h5><p>在学一个东西之前，我们要先了解这个东西是用来干什么的，所以呢，我现在要先说出一个最模糊的概念，也是最容易忽略的：</p>
 <blockquote>
 <p>AC自动机是处理字符串的有力工具</p>
@@ -542,7 +539,7 @@
 <li>显然枚举每个单词，先建立该单词的next，然后在文章里挨个匹配</li>
 </ul>
 <p>code：</p>
-<p>![]**(<a href="https://s7.postimg.cc/4r2zhnowb/image.png" target="_blank" rel="noopener">https://s7.postimg.cc/4r2zhnowb/image.png</a>)</p>
+<p><img src="https://s7.postimg.cc/4r2zhnowb/image.png" alt=""></p>
 <p><strong>复杂度：$O(n^2)$ </strong></p>
 <h3 id="3-AC自动机优化"><a href="#3-AC自动机优化" class="headerlink" title="3.AC自动机优化"></a>3.AC自动机优化</h3><ul>
 <li>首先名字都变长了，那肯定变 nb 了啊，</li>
@@ -565,16 +562,14 @@
 <p>＼＼\٩(‘ω’)و//／／ </p>
 <p> 这样我们就可以把多个单词放到一起考虑了，太棒了</p>
 </blockquote>
-<p>####但是那些和这 k 个不一样的呢</p>
-<blockquote>
+<h4 id="但是那些和这-k-个不一样的呢"><a href="#但是那些和这-k-个不一样的呢" class="headerlink" title="但是那些和这 k 个不一样的呢"></a>但是那些和这 k 个不一样的呢</h4><blockquote>
 <p>就不要了呗，反正我们在 Trie 上也匹配不到这几个不一样的串</p>
 <p>A：有用吗？</p>
 <p>B：没用。。。</p>
 <p>A：扔！！！</p>
 </blockquote>
 <h4 id="code实现"><a href="#code实现" class="headerlink" title="code实现"></a>code实现</h4><h5 id="Build-fail"><a href="#Build-fail" class="headerlink" title="Build_fail"></a>Build_fail</h5><p>我们第二步是建立fail指针，所以我们需要了解fail具体是干什么的； </p>
-<p>######插播一段 fail</p>
-<ul>
+<h6 id="插播一段-fail"><a href="#插播一段-fail" class="headerlink" title="插播一段 fail"></a>插播一段 fail</h6><ul>
 <li>类似KMP中的next <code>令当前节点 A 的 fail 所指向的是节点 B ，则有 B 是A的后缀【解释】</code></li>
 <li>这个 fail 就是AC自动机的优化之处 <code>因为它和 KMP 的 next 数组一样，可以跳转到至少不会更差的地方</code></li>
 <li>为什么不会更差？？！ <code>我们保证了当前节点 A 的 fail 指针所指向的节点 B ，以 B 为结尾的单词串一定是以 A 为结尾的单词的后缀；至于原因，自行KMP</code></li>
@@ -603,8 +598,7 @@
 <li>T3 HDU 2896 病毒侵袭</li>
 <li>T4 并没有T4，略略略，以上的T1理解，T2，T3。。。。算了</li>
 </ul>
-<p>####solution</p>
-<ul>
+<h4 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h4><ul>
 <li>T1 裸的AC自动机（都模板了好不，刚讲的）</li>
 <li>T2 。。。。。。。。。。。。</li>
 <li>T3 。。。。。。。。。。。。。。</li>
@@ -630,11 +624,11 @@
       
         <div class="post-tags">
           
+            <a href="/tags/algorithm-of-OI/" rel="tag"># algorithm of OI</a>
+          
             <a href="/tags/Tire/" rel="tag"># Tire</a>
           
             <a href="/tags/AC自动机/" rel="tag"># AC自动机</a>
-          
-            <a href="/tags/algorithm-of-OI/" rel="tag"># algorithm of OI</a>
           
         </div>
       
@@ -819,7 +813,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#写在前面"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Trie-or-字典树"><span class="nav-number"></span> <span class="nav-text">Trie or 字典树</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#字典树有三个基本性质："><span class="nav-number">0.0.1.</span> <span class="nav-text">字典树有三个基本性质：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#But-why？？！"><span class="nav-number">0.1.</span> <span class="nav-text">But why？？！</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优点"><span class="nav-number">1.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缺点"><span class="nav-number">2.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number"></span> <span class="nav-text">简介</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#了解"><span class="nav-number">0.0.1.</span> <span class="nav-text">了解</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#其他"><span class="nav-number">0.0.2.</span> <span class="nav-text">其他</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#大致思路"><span class="nav-number">0.1.</span> <span class="nav-text">大致思路</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#三步走"><span class="nav-number">0.1.1.</span> <span class="nav-text">三步走</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思想实现"><span class="nav-number"></span> <span class="nav-text">思想实现</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#我要做什么？？！"><span class="nav-number">0.0.1.</span> <span class="nav-text">我要做什么？？！</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-暴力"><span class="nav-number">1.</span> <span class="nav-text">1.暴力</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-KMP优化"><span class="nav-number">2.</span> <span class="nav-text">2.KMP优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-AC自动机优化"><span class="nav-number">3.</span> <span class="nav-text">3.AC自动机优化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#每个新事物的开始都是异想天开"><span class="nav-number">3.1.</span> <span class="nav-text">每个新事物的开始都是异想天开</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#额，上一个好像没什么用"><span class="nav-number">3.2.</span> <span class="nav-text">额，上一个好像没什么用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#没想到也要想到。。。。"><span class="nav-number">3.3.</span> <span class="nav-text">没想到也要想到。。。。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#code实现"><span class="nav-number">3.4.</span> <span class="nav-text">code实现</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Build-fail"><span class="nav-number">3.4.1.</span> <span class="nav-text">Build_fail</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简单应用"><span class="nav-number"></span> <span class="nav-text">简单应用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#END"><span class="nav-number"></span> <span class="nav-text">END</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#写在前面"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Trie-or-字典树"><span class="nav-number"></span> <span class="nav-text">Trie or 字典树</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#字典树的概念"><span class="nav-number">0.0.1.</span> <span class="nav-text">字典树的概念</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#那什么是Trie？？！"><span class="nav-number">0.0.2.</span> <span class="nav-text">那什么是Trie？？！</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#字典树有三个基本性质："><span class="nav-number">0.0.3.</span> <span class="nav-text">字典树有三个基本性质：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#But-why？？！"><span class="nav-number">0.1.</span> <span class="nav-text">But why？？！</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#because-这是基本性质"><span class="nav-number">0.2.</span> <span class="nav-text">because 这是基本性质</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优点"><span class="nav-number">1.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缺点"><span class="nav-number">2.</span> <span class="nav-text">缺点</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#AC自动机"><span class="nav-number"></span> <span class="nav-text">AC自动机</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number"></span> <span class="nav-text">简介</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#了解"><span class="nav-number">0.0.1.</span> <span class="nav-text">了解</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#其他"><span class="nav-number">0.0.2.</span> <span class="nav-text">其他</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#大致思路"><span class="nav-number">0.1.</span> <span class="nav-text">大致思路</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#三步走"><span class="nav-number">0.1.1.</span> <span class="nav-text">三步走</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思想实现"><span class="nav-number"></span> <span class="nav-text">思想实现</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#我要做什么？？！"><span class="nav-number">0.0.1.</span> <span class="nav-text">我要做什么？？！</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-暴力"><span class="nav-number">1.</span> <span class="nav-text">1.暴力</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-KMP优化"><span class="nav-number">2.</span> <span class="nav-text">2.KMP优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-AC自动机优化"><span class="nav-number">3.</span> <span class="nav-text">3.AC自动机优化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#每个新事物的开始都是异想天开"><span class="nav-number">3.1.</span> <span class="nav-text">每个新事物的开始都是异想天开</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#额，上一个好像没什么用"><span class="nav-number">3.2.</span> <span class="nav-text">额，上一个好像没什么用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#没想到也要想到。。。。"><span class="nav-number">3.3.</span> <span class="nav-text">没想到也要想到。。。。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#但是那些和这-k-个不一样的呢"><span class="nav-number">3.4.</span> <span class="nav-text">但是那些和这 k 个不一样的呢</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#code实现"><span class="nav-number">3.5.</span> <span class="nav-text">code实现</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Build-fail"><span class="nav-number">3.5.1.</span> <span class="nav-text">Build_fail</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#插播一段-fail"><span class="nav-number">3.5.1.1.</span> <span class="nav-text">插播一段 fail</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简单应用"><span class="nav-number"></span> <span class="nav-text">简单应用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#solution"><span class="nav-number">0.1.</span> <span class="nav-text">solution</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#END"><span class="nav-number"></span> <span class="nav-text">END</span></a></div>
             
 
           </div>
