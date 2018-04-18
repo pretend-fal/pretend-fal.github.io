@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #cccccc; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #cccccc, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #cccccc;    /*上边框颜色*/
+        border-left-color: #cccccc;    /*左边框颜色*/
+    }
+</style>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.1.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.1.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.1.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="写在前面 Trie 是一个前置知识，所以我就从网上找了些介绍，然后借(Ctrl+C)鉴(Ctrl+V)过来了，所以要是有些神乎其神的地方我要是解释不了，大家可以自行百度 QAQ 然后是 AC自动机 这个是这篇 blog 主要讲的东西，但是我觉得对于这种字符串的东西，还是口胡的地方比较多，所以有关 AC自动机 的篇幅也不会太长，主要是在黑板上画来画去  然后我们就开始了   Trie or 字典树#">
+<meta name="keywords" content="Tire,AC自动机,algorithm of OI">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tire and AC自动机">
+<meta property="og:url" content="http://pretend-fal.github.io/2018/04/18/Tire and AC自动机/index.html">
+<meta property="og:site_name" content="The world which is god and mine">
+<meta property="og:description" content="写在前面 Trie 是一个前置知识，所以我就从网上找了些介绍，然后借(Ctrl+C)鉴(Ctrl+V)过来了，所以要是有些神乎其神的地方我要是解释不了，大家可以自行百度 QAQ 然后是 AC自动机 这个是这篇 blog 主要讲的东西，但是我觉得对于这种字符串的东西，还是口胡的地方比较多，所以有关 AC自动机 的篇幅也不会太长，主要是在黑板上画来画去  然后我们就开始了   Trie or 字典树#">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://s7.postimg.cc/56e9acxvf/image.png">
+<meta property="og:image" content="https://s7.postimg.cc/w486cb8aj/image.png">
+<meta property="og:updated_time" content="2018-04-18T08:40:42.495Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Tire and AC自动机">
+<meta name="twitter:description" content="写在前面 Trie 是一个前置知识，所以我就从网上找了些介绍，然后借(Ctrl+C)鉴(Ctrl+V)过来了，所以要是有些神乎其神的地方我要是解释不了，大家可以自行百度 QAQ 然后是 AC自动机 这个是这篇 blog 主要讲的东西，但是我觉得对于这种字符串的东西，还是口胡的地方比较多，所以有关 AC自动机 的篇幅也不会太长，主要是在黑板上画来画去  然后我们就开始了   Trie or 字典树#">
+<meta name="twitter:image" content="https://s7.postimg.cc/56e9acxvf/image.png">
+
+
+
+
+
+
+  <link rel="canonical" href="http://pretend-fal.github.io/2018/04/18/Tire and AC自动机/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Tire and AC自动机 | The world which is god and mine</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</head>
+
+
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas>
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
+   <script type="text/javascript" src="/js/src/fireworks.js"></script>
+
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/pretend-fal"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> 
+
+<div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">The world which is god and mine</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="accessibility.nav_toggle">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+          
+  
+  <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />home</a>
+</li>
+
+      
+        
+        
+          
+  
+  <li class="menu-item menu-item-about menu-item-active">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />about</a>
+</li>
+
+      
+        
+        
+          
+  
+  <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />tags</a>
+</li>
+
+      
+        
+        
+          
+  
+  <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />categories</a>
+</li>
+
+      
+        
+        
+          
+  
+  <li class="menu-item menu-item-schedule">
+    <a href="/schedule/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />schedule</a>
+</li>
+
+      
+        
+        
+          
+  
+  <li class="menu-item menu-item-links">
+    <a href="/links/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-fas fa-arrows-alt"></i> <br />links</a>
+</li>
+
+      
+        
+        
+          
+  
+  <li class="menu-item menu-item-only_belong_lxw">
+    <a href="/only-belong-lxw/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-fas fa-beer"></i> <br />only_belong_lxw</a>
+</li>
+
+      
+
+      
+    </ul>
+  
+
+  
+    
+
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+    
+
+  
+
+
+  
+
+  
+</nav>
+
+
+  
+
+
+
+ </div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://pretend-fal.github.io/2018/04/18/Tire and AC自动机/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="pretend-fal">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="The world which is god and mine">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Tire and AC自动机</h1>
+        
+
+        <div class="post-meta">
+        
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">post.posted</span>
+              
+              <time title="post.created" itemprop="dateCreated datePublished" datetime="2018-04-18T15:31:42+08:00">2018-04-18</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><ul>
+<li>Trie 是一个前置知识，所以我就从网上找了些介绍，然后借(Ctrl+C)鉴(Ctrl+V)过来了，所以要是有些神乎其神的地方我要是解释不了，大家可以自行百度 QAQ</li>
+<li>然后是 AC自动机 这个是这篇 blog 主要讲的东西，但是我觉得对于这种字符串的东西，还是口胡的地方比较多，所以有关 AC自动机 的篇幅也不会太长，主要是在黑板上画来画去 </li>
+<li>然后我们就开始了</li>
+</ul>
+<hr>
+<h1 id="Trie-or-字典树"><a href="#Trie-or-字典树" class="headerlink" title="Trie or 字典树"></a>Trie or 字典树</h1><p>#####字典树的概念    </p>
+<ul>
+<li>字典树，因为它的搜索快捷的特性被单词搜索系统使用，故又称单词查找树。它是一种树形结构的数据结构。之所以快速，是因为它用空间代替了速度。</li>
+</ul>
+<p>#####那什么是Trie？？！</p>
+<ul>
+<li>其实就是把一些字符串连到一个根节点上，既然有根节点了，那一定有了一颗树，那么，我们把这些串形成的树叫作 <strong>Trie</strong>；</li>
+</ul>
+<h5 id="字典树有三个基本性质："><a href="#字典树有三个基本性质：" class="headerlink" title="字典树有三个基本性质："></a>字典树有三个基本性质：</h5><ul>
+<li>根节点不包含字符，除根节点外每一个节点都只包含一个字符</li>
+<li>从根节点到某一个节点，路径上经过的字符连接起来，就是该节点对应的字符串</li>
+<li>每个节点的所有子节点包含的字符都不相同。</li>
+</ul>
+<h4 id="But-why？？！"><a href="#But-why？？！" class="headerlink" title="But why？？！"></a>But why？？！</h4><p>####because 这是基本性质</p>
+<p>代码 code ：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> II int</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> IL inline</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> R register</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> I 123456</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt; <span class="function">IL <span class="keyword">void</span> <span class="title">of</span> <span class="params">(R T &amp;a)</span> </span>&#123;</span><br><span class="line">	R <span class="keyword">char</span> c=getchar (); R T w=<span class="number">1</span>, p=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span> (!<span class="built_in">isdigit</span>(c)) &#123; <span class="keyword">if</span>(c==<span class="string">'-'</span>) w=<span class="number">-1</span>; c=getchar (); &#125;</span><br><span class="line">	<span class="keyword">while</span> (<span class="built_in">isdigit</span>(c)) &#123; p=p*<span class="number">10</span>+c-<span class="string">'0'</span>; c=getchar (); &#125;</span><br><span class="line">	a=w*p;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* -------------------- Peipei -------------------- */</span></span><br><span class="line"></span><br><span class="line">II n,Q,len,tot,root;</span><br><span class="line">II a[I];</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">POI</span> &#123;</span> II up[<span class="number">10</span>]; II is; &#125; Tr[I];</span><br><span class="line"><span class="function">IL II <span class="title">npoi</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	tot++;</span><br><span class="line">	<span class="keyword">for</span>(R II i=<span class="number">0</span>;i&lt;=<span class="number">9</span>;i++) </span><br><span class="line">		Tr[tot].up[i]=<span class="number">0</span>;</span><br><span class="line">	Tr[tot].is=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">return</span> tot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">IL <span class="keyword">void</span> <span class="title">in</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	of(len);</span><br><span class="line">	<span class="keyword">for</span>(R II i=<span class="number">1</span>;i&lt;=len;i++) <span class="built_in">scanf</span>(<span class="string">"%1d"</span>,&amp;a[i]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">IL <span class="keyword">void</span> <span class="title">join</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	R II pi=root;</span><br><span class="line">	<span class="keyword">for</span>(R II i=<span class="number">1</span>;i&lt;=len;i++) &#123;</span><br><span class="line">		<span class="keyword">if</span>(!Tr[pi].up[a[i]]) </span><br><span class="line">			Tr[pi].up[a[i]]=npoi();</span><br><span class="line">		pi=Tr[pi].up[a[i]];</span><br><span class="line">	&#125;</span><br><span class="line">	Tr[pi].is=<span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">IL <span class="keyword">bool</span> <span class="title">ask</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	R II pi=root;</span><br><span class="line">	<span class="keyword">for</span>(R II i=<span class="number">1</span>;i&lt;=len;i++) &#123;</span><br><span class="line">		<span class="keyword">if</span>(!Tr[pi].up[a[i]]) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">		pi=Tr[pi].up[a[i]];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> Tr[pi].is;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	of(n);</span><br><span class="line">	<span class="keyword">for</span>(R II i=<span class="number">1</span>;i&lt;=n;i++) in(), join();</span><br><span class="line">	</span><br><span class="line">	of(Q);</span><br><span class="line">	<span class="keyword">while</span> ( Q -- ) &#123;</span><br><span class="line">		in();</span><br><span class="line">		ask() ? <span class="built_in">puts</span>(<span class="string">"Y"</span>) : <span class="built_in">puts</span>(<span class="string">"N"</span>) ;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>看不懂我的代码？？！ 我并没有办法。。。。。。。。。。。。。。</p>
+<p>接下来是网上的的介绍，我就Ctrl+C+V过来了，我也没怎么看，ennnnnnnnn 大概是些定义，可以了解下</p>
+<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ul>
+<li>可以最大限度地减少无谓的字符串比较，故可以用于词频统计和大量字符串排序。跟哈希表比较：</li>
+<li>最坏情况时间复杂度比hash表好</li>
+<li>没有冲突，除非一个key对应多个值（除key外的其他信息）</li>
+<li>自带排序功能（类似Radix Sort），中序遍历trie可以得到排序。</li>
+</ul>
+<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><ul>
+<li>虽然不同单词共享前缀，但其实trie是一个以空间换时间的算法。其每一个字符都可能包含至多字符集大小数目的指针（不包含卫星数据）。</li>
+<li>每个结点的子树的根节点的组织方式有几种。<ul>
+<li>果默认包含所有字符集，则查找速度快但浪费空间（特别是靠近树底部叶子）。</li>
+<li>如果用链接法(如左儿子右兄弟)，则节省空间但查找需顺序（部分）遍历链表。</li>
+<li>alphabet reduction: 减少字符宽度以减少字母集个数。,</li>
+<li>对字符集使用bitmap，再配合链接法。</li>
+</ul>
+</li>
+<li>如果数据存储在外部存储器等较慢位置，Trie会较hash速度慢（hash访问O(1)次外存，Trie访问O(树高)）。</li>
+<li>长的浮点数等会让链变得很长。可用bitwise trie改进。</li>
+</ul>
+<p>然后 Trie 我们就讲到这里</p>
+<hr>
+<p>#AC自动机</p>
+<p><em>伪·自动AC机 nice</em></p>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><h5 id="了解"><a href="#了解" class="headerlink" title="了解"></a>了解</h5><p>在学一个东西之前，我们要先了解这个东西是用来干什么的，所以呢，我现在要先说出一个最模糊的概念，也是最容易忽略的：</p>
+<blockquote>
+<p>AC自动机是处理字符串的有力工具</p>
+</blockquote>
+<p>然后我们再继续了解下它的其他概念；</p>
+<h5 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h5><ul>
+<li><strong>AC自动机 </strong> <code>Aho-Corasick automation，该算法在1975年产生于贝尔实验室，是著名的多模匹配算法之一。</code></li>
+<li><strong>常见例子</strong> <code>给出n个单词，再给出一段包含m个字符的文章，让你找出有多少个单词在文章里出现过。</code></li>
+<li><strong>学习前提</strong> <code>要搞懂AC自动机，先得有字典树Trie和KMP模式匹配算法的基础知识。</code></li>
+<li><strong>与KMP区分</strong> <code>KMP算法是单模式串的字符匹配算法，AC自动机是多模式串的字符匹配算法。</code></li>
+</ul>
+<h4 id="大致思路"><a href="#大致思路" class="headerlink" title="大致思路"></a>大致思路</h4><h5 id="三步走"><a href="#三步走" class="headerlink" title="三步走"></a>三步走</h5><ul>
+<li>Trie树</li>
+<li>Fail指针</li>
+<li>匹配</li>
+</ul>
+<p>Trie 我们之前讲了，所以呢，我们已经走了第一步，【开心】那么我们还有两步要走，那么当然是接着走了。。。。</p>
+<h2 id="思想实现"><a href="#思想实现" class="headerlink" title="思想实现"></a>思想实现</h2><h5 id="我要做什么？？！"><a href="#我要做什么？？！" class="headerlink" title="我要做什么？？！"></a>我要做什么？？！</h5><ul>
+<li>这是一个值得思考的问题，只有我们知道了要干什么我们才能去实现；</li>
+<li>就像刚刚简介里的经典问题：<code>给出n个单词，再给出一段包含m个字符的文章，让你找出有多少个单词在文章里出现过。</code></li>
+<li>那么我们通过解决这个子问题来解决我们要干什么这个大问题；</li>
+</ul>
+<p><strong>那么大家先把自己想到的做法说一下</strong></p>
+<ul>
+<li>​</li>
+<li>​</li>
+<li>​</li>
+<li>​</li>
+<li>​</li>
+<li>​</li>
+<li>​</li>
+<li>​</li>
+</ul>
+<p>然后我说一下我想说的</p>
+<h3 id="1-暴力"><a href="#1-暴力" class="headerlink" title="1.暴力"></a>1.暴力</h3><ul>
+<li>首先这是个极其不错的方法，至少错误率会比较低，而且好写，再而且，这是骗分的手段之一；</li>
+<li>然后我们考虑实现</li>
+<li>显然枚举每个单词，然后在文章里挨个匹配</li>
+</ul>
+<p>code：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(R II i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">&#123;</span><br><span class="line">    R II len1=<span class="built_in">strlen</span>(s[i]+<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span>(R II j=<span class="number">1</span>;j&lt;=len;j++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(R II k=<span class="number">1</span>;k&lt;=len1;k++)</span><br><span class="line">            <span class="keyword">if</span>(S[j+k<span class="number">-1</span>]!=s[k]) <span class="keyword">break</span> ;</span><br><span class="line">       		<span class="keyword">else</span> <span class="keyword">if</span>(k==len1) ans++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%d\n"</span>,ans);</span><br></pre></td></tr></table></figure>
+<p><strong>复杂度：$O(n^3)$</strong> </p>
+<h3 id="2-KMP优化"><a href="#2-KMP优化" class="headerlink" title="2.KMP优化"></a>2.KMP优化</h3><ul>
+<li>首先这是个不错的优化手段，因为KMP可以把匹配的过程由 $O(n^2)$ 优化到 $O(n)$ </li>
+<li>然后我们考虑实现</li>
+<li>显然枚举每个单词，先建立该单词的next，然后在文章里挨个匹配</li>
+</ul>
+<p>code：</p>
+<p>![]**(<a href="https://s7.postimg.cc/4r2zhnowb/image.png" target="_blank" rel="noopener">https://s7.postimg.cc/4r2zhnowb/image.png</a>)</p>
+<p><strong>复杂度：$O(n^2)$ </strong></p>
+<h3 id="3-AC自动机优化"><a href="#3-AC自动机优化" class="headerlink" title="3.AC自动机优化"></a>3.AC自动机优化</h3><ul>
+<li>首先名字都变长了，那肯定变 nb 了啊，</li>
+<li>Ta把我们用 KMP 优化后的东西又优化了，妈诶，太强了</li>
+<li>然后我们考虑实现</li>
+<li>显然，不，一点都不显然，不然我还讲个啥啊！！！</li>
+<li>考虑实现：比较重要，详细介绍下</li>
+</ul>
+<h4 id="每个新事物的开始都是异想天开"><a href="#每个新事物的开始都是异想天开" class="headerlink" title="每个新事物的开始都是异想天开"></a>每个新事物的开始都是异想天开</h4><blockquote>
+<p>我们之前是一个个的单词去匹配，那我们能不能把所有的单词放在一起，然后一起匹配咧？？！</p>
+<p>肯定是可以的啊，我们把文章放在外层循环，然后当前位置去匹配所有的单词就可以了啊</p>
+</blockquote>
+<h4 id="额，上一个好像没什么用"><a href="#额，上一个好像没什么用" class="headerlink" title="额，上一个好像没什么用"></a>额，上一个好像没什么用</h4><blockquote>
+<p>那可咋办啊？？！</p>
+<p>但是我们已经把单词集中到一起了啊</p>
+<p>我们发现，如果当前有 k 个单词可以在当前位置匹配上，那这 k 个单词一定有一个公共的前缀，所以嘞，有没有想到 Trie ( • ̀ω•́ )✧</p>
+</blockquote>
+<h4 id="没想到也要想到。。。。"><a href="#没想到也要想到。。。。" class="headerlink" title="没想到也要想到。。。。"></a>没想到也要想到。。。。</h4><blockquote>
+<p>如果上述 k 个单词放到了 Trie 里，然后我们把当前位置(这个位置是上一个枚举到的位置)在 Trie 中匹配，是不是就直接可以一次匹配多个串了？？</p>
+<p>＼＼\٩(‘ω’)و//／／ </p>
+<p> 这样我们就可以把多个单词放到一起考虑了，太棒了</p>
+</blockquote>
+<p>####但是那些和这 k 个不一样的呢</p>
+<blockquote>
+<p>就不要了呗，反正我们在 Trie 上也匹配不到这几个不一样的串</p>
+<p>A：有用吗？</p>
+<p>B：没用。。。</p>
+<p>A：扔！！！</p>
+</blockquote>
+<h4 id="code实现"><a href="#code实现" class="headerlink" title="code实现"></a>code实现</h4><h5 id="Build-fail"><a href="#Build-fail" class="headerlink" title="Build_fail"></a>Build_fail</h5><p>我们第二步是建立fail指针，所以我们需要了解fail具体是干什么的； </p>
+<p>######插播一段 fail</p>
+<ul>
+<li>类似KMP中的next <code>令当前节点 A 的 fail 所指向的是节点 B ，则有 B 是A的后缀【解释】</code></li>
+<li>这个 fail 就是AC自动机的优化之处 <code>因为它和 KMP 的 next 数组一样，可以跳转到至少不会更差的地方</code></li>
+<li>为什么不会更差？？！ <code>我们保证了当前节点 A 的 fail 指针所指向的节点 B ，以 B 为结尾的单词串一定是以 A 为结尾的单词的后缀；至于原因，自行KMP</code></li>
+<li>解释结束 <code>不懂快问，不然就继续了</code></li>
+</ul>
+<p>over</p>
+<p>然后我们去考虑如何实现；</p>
+<p>我们知道一个显然的事情：<code>一个字符串的后缀一定比该字符串短；</code></p>
+<p>再根据前面说的 fail  所指向的含义；</p>
+<p>可知，<strong>当前节点 A 的 fail 的深度一定比 A 小；</strong></p>
+<p>然后，根据 KMP 的 next 的求法：<code>当前点 A 的 next 由 A 的前一个点 B 的 next 推出；</code></p>
+<p>那我们放到 Trie 上，当前节点 A 的前一个节点就是 A 的父亲，所以我们 A 的 fail 是由它的父亲推出，同理，这颗 Trie 上的任何一个节点都满足这个性质；（如下图）</p>
+<p>那么我们就可以用一种数据结构来处理：    <strong>queue </strong></p>
+<p><img src="https://s7.postimg.cc/56e9acxvf/image.png" alt=""></p>
+<p>每一层的构建方式都类比上一层</p>
+<p>理解或者没理解，我现在在图上模拟一下建立 fail 的过程</p>
+<p><img src="https://s7.postimg.cc/w486cb8aj/image.png" alt=""></p>
+<p>(复制到画板上。。。。。。。。。。。。。)</p>
+<p>code：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> II int</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> R register</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> I 1623456</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span> &#123;</span></span><br><span class="line">	II up[<span class="number">27</span>];</span><br><span class="line">	II is, fail;</span><br><span class="line">&#125;Tr[I];</span><br><span class="line"></span><br><span class="line">II _tot=<span class="number">-1</span>,root,n,len,ans;</span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span> a[I];</span><br><span class="line"></span><br><span class="line"><span class="function">II <span class="title">new_one</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	_tot++;</span><br><span class="line">	<span class="keyword">for</span>(R II i=<span class="number">1</span>;i&lt;=<span class="number">27</span>;i++) </span><br><span class="line">		Tr[_tot].up[i]=<span class="number">0</span>;</span><br><span class="line">	Tr[_tot].is=<span class="number">0</span>;</span><br><span class="line">	Tr[_tot].fail=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">return</span> _tot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">fffail</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">queue</span> &lt;II&gt; Q;</span><br><span class="line">	<span class="keyword">for</span>(R II i=<span class="number">1</span>;i&lt;=<span class="number">26</span>;i++) </span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(Tr[root].up[i]) &#123;</span><br><span class="line">			Tr[Tr[root].up[i]].fail=root;</span><br><span class="line">			Q.push(Tr[root].up[i]);</span><br><span class="line">		&#125; <span class="keyword">else</span> Tr[root].up[i]=root;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">while</span> (<span class="keyword">not</span> Q.empty()) &#123;</span><br><span class="line">		R II pi=Q.front(); Q.pop();</span><br><span class="line">		<span class="keyword">for</span>(R II i=<span class="number">1</span>;i&lt;=<span class="number">26</span>;i++)</span><br><span class="line">		&#123;</span><br><span class="line">			R II go=Tr[pi].fail;</span><br><span class="line">			R II son=Tr[pi].up[i];</span><br><span class="line">			<span class="keyword">if</span>(Tr[pi].up[i]) &#123;</span><br><span class="line">				<span class="keyword">while</span> (<span class="keyword">not</span> Tr[go].up[i] <span class="keyword">and</span> go) &#123;</span><br><span class="line">					go=Tr[go].fail;</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">if</span>(<span class="keyword">not</span> Tr[go].up[i]) Tr[son].fail=root;</span><br><span class="line">				<span class="keyword">else</span> Tr[son].fail=Tr[go].up[i];</span><br><span class="line">				Q.push(son);</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">				Tr[son].up[i]=Tr[Tr[pi].fail].up[i];</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	root=new_one();</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">for</span>(R II i=<span class="number">1</span>;i&lt;=n;i++) </span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%s"</span>,a+<span class="number">1</span>);</span><br><span class="line">		len=<span class="built_in">strlen</span>(a+<span class="number">1</span>);</span><br><span class="line">		R II pi=root;</span><br><span class="line">		<span class="keyword">for</span>(R II j=<span class="number">1</span>;j&lt;=len;j++) </span><br><span class="line">		&#123;</span><br><span class="line">			R II o=a[j]-<span class="string">'a'</span>+<span class="number">1</span>;</span><br><span class="line">			<span class="keyword">if</span>(<span class="keyword">not</span> Tr[pi].up[o]) Tr[pi].up[o]=new_one();</span><br><span class="line">			pi=Tr[pi].up[o];</span><br><span class="line">		&#125;</span><br><span class="line">		Tr[pi].is++;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	fffail();</span><br><span class="line">	</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%s"</span>,a+<span class="number">1</span>);</span><br><span class="line">	len=<span class="built_in">strlen</span>(a+<span class="number">1</span>);</span><br><span class="line">	R II pi=root;</span><br><span class="line">	<span class="keyword">for</span>(R II i=<span class="number">1</span>;i&lt;=len;i++) </span><br><span class="line">	&#123;</span><br><span class="line">		R II o=a[i]-<span class="string">'a'</span>+<span class="number">1</span>;</span><br><span class="line">		R II pr=pi;</span><br><span class="line">		<span class="keyword">while</span> (<span class="keyword">not</span> Tr[pi].up[o] <span class="keyword">and</span> pi) pi=Tr[pi].fail;</span><br><span class="line">		pi=Tr[pi].up[o];</span><br><span class="line">		<span class="keyword">if</span>(<span class="keyword">not</span> pi) pi=root;</span><br><span class="line">		<span class="keyword">while</span> (pr <span class="keyword">and</span> Tr[pr].is&gt;=<span class="number">0</span>) &#123;</span><br><span class="line">			ans+=Tr[pr].is;</span><br><span class="line">			Tr[pr].is=<span class="number">-1</span>;</span><br><span class="line">			pr=Tr[pr].fail;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,ans);</span><br><span class="line">	<span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>几十年前的代码了，勿喷。。。。。。。。。。。。。。。</p>
+<h2 id="简单应用"><a href="#简单应用" class="headerlink" title="简单应用"></a>简单应用</h2><p><em>简单应用在OI里当然是做题了。。。。。。。。。。。。。。</em></p>
+<ul>
+<li>T1 luogu AC自动机(简单版)and(加强版)</li>
+<li>T2 HDU 3341 Lost’s revenge</li>
+<li>T3 HDU 2896 病毒侵袭</li>
+<li>T4 并没有T4，略略略，以上的T1理解，T2，T3。。。。算了</li>
+</ul>
+<p>####solution</p>
+<ul>
+<li>T1 裸的AC自动机（都模板了好不，刚讲的）</li>
+<li>T2 。。。。。。。。。。。。</li>
+<li>T3 。。。。。。。。。。。。。。</li>
+</ul>
+<h1 id="END"><a href="#END" class="headerlink" title="END"></a>END</h1><p>当然有PPT的</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Tire/" rel="tag"># Tire</a>
+          
+            <a href="/tags/AC自动机/" rel="tag"># AC自动机</a>
+          
+            <a href="/tags/algorithm-of-OI/" rel="tag"># algorithm of OI</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/15/luogu P1169 [ZJOI2007]棋盘制作/" rel="next" title="luogu P1169 [ZJOI2007]棋盘制作">
+                <i class="fa fa-chevron-left"></i> luogu P1169 [ZJOI2007]棋盘制作
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            sidebar.toc
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            sidebar.overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">pretend-fal</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives">
+                
+                    <span class="site-state-item-count">20</span>
+                    <span class="site-state-item-name">state.posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">15</span>
+                    <span class="site-state-item-name">state.tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://1208247864@qq.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#写在前面"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Trie-or-字典树"><span class="nav-number"></span> <span class="nav-text">Trie or 字典树</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#字典树有三个基本性质："><span class="nav-number">0.0.1.</span> <span class="nav-text">字典树有三个基本性质：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#But-why？？！"><span class="nav-number">0.1.</span> <span class="nav-text">But why？？！</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优点"><span class="nav-number">1.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缺点"><span class="nav-number">2.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number"></span> <span class="nav-text">简介</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#了解"><span class="nav-number">0.0.1.</span> <span class="nav-text">了解</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#其他"><span class="nav-number">0.0.2.</span> <span class="nav-text">其他</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#大致思路"><span class="nav-number">0.1.</span> <span class="nav-text">大致思路</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#三步走"><span class="nav-number">0.1.1.</span> <span class="nav-text">三步走</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思想实现"><span class="nav-number"></span> <span class="nav-text">思想实现</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#我要做什么？？！"><span class="nav-number">0.0.1.</span> <span class="nav-text">我要做什么？？！</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-暴力"><span class="nav-number">1.</span> <span class="nav-text">1.暴力</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-KMP优化"><span class="nav-number">2.</span> <span class="nav-text">2.KMP优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-AC自动机优化"><span class="nav-number">3.</span> <span class="nav-text">3.AC自动机优化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#每个新事物的开始都是异想天开"><span class="nav-number">3.1.</span> <span class="nav-text">每个新事物的开始都是异想天开</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#额，上一个好像没什么用"><span class="nav-number">3.2.</span> <span class="nav-text">额，上一个好像没什么用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#没想到也要想到。。。。"><span class="nav-number">3.3.</span> <span class="nav-text">没想到也要想到。。。。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#code实现"><span class="nav-number">3.4.</span> <span class="nav-text">code实现</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Build-fail"><span class="nav-number">3.4.1.</span> <span class="nav-text">Build_fail</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简单应用"><span class="nav-number"></span> <span class="nav-text">简单应用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#END"><span class="nav-number"></span> <span class="nav-text">END</span></a></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-star"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">pretend-fal</span>
+
+  
+
+  
+</div>
+
+
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共16.1k字</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.1.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/"});</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end --></body>
+</html>
