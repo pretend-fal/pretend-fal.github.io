@@ -125,7 +125,7 @@
 <meta property="og:image" content="http://pretend-fal.github.io/pic/5.bmp">
 <meta property="og:image" content="http://pretend-fal.github.io/pic/6.bmp">
 <meta property="og:image" content="http://pretend-fal.github.io/pic/7.bmp">
-<meta property="og:updated_time" content="2018-04-22T08:38:07.043Z">
+<meta property="og:updated_time" content="2018-04-22T08:52:33.975Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="FHQ Treap">
 <meta name="twitter:description" content="FHQ Treap万岁，摒弃Splay">
@@ -251,7 +251,7 @@
         
           
   
-  <li class="menu-item menu-item-about">
+  <li class="menu-item menu-item-about menu-item-active">
     <a href="/about/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-user"></i> <br />about</a>
 </li>
@@ -432,6 +432,7 @@
 <li>FHQ支持持久化，但是Splay不行</li>
 </ul>
 <p>所以推荐FHQ</p>
+<p>还有下文里的<code>平衡树的性质</code> 可以理解为一个节点的左子树所有权值都是小于当前节点权值的，右子树的所有权值都是大于当前节点权值的</p>
 <hr>
 <p>这是个目录<br>[TOC]</p>
 <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>首先FHQ是一种平衡树，而且是一种Treap的延伸物[^我是这么想的] ，然后首先你可以先学Treap，然后再来看这篇，这样子可能学起来就简单一些了，然后就会忘记Treap怎么码，只会FHQ了，反正我现在码Treap是要现推的</p>
@@ -478,6 +479,13 @@
 <p>这就化为了一个子问题，我们把 $r$ 和 $l$ 的右子树合并成一个Treap，然后作为 $l$ 的新右子树就OK了</p>
 <p>所以我们下传的是 $merge(Tr[l].r,r)$ </p>
 <p>这个比较简单，至于右子树，自行参考左子树</p>
+<h1 id="int-main"><a href="#int-main" class="headerlink" title="int main"></a>int main</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Tree</span> &#123;</span> II l,r,w,siz,ra; &#125; Tr[I];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    srand(time(<span class="number">0</span>));</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 合并</span></span><br><span class="line">    of(n);</span><br><span class="line">    <span class="keyword">for</span>(R II i=<span class="number">1</span>;i&lt;=n;i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> x; of(x);</span><br><span class="line">        Tr[i]=(Tree) &#123;<span class="number">0</span>,<span class="number">0</span>,x,<span class="number">1</span>,rand()&#125;;</span><br><span class="line">        root=merge(root,i);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 分离</span></span><br><span class="line">    <span class="keyword">int</span> l,r,w;</span><br><span class="line">    of(w);</span><br><span class="line">    split(root,l,r,w);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>$root$ 就是当前的整棵Treap的根节点编号</p>
+<p>$l$ 和 $r$ 就是分离出来的两棵Treap的根节点编号</p>
+<h1 id="一些注意"><a href="#一些注意" class="headerlink" title="一些注意"></a>一些注意</h1><ul>
+<li>我们在进行 $merge$ 和 $split$ 时，每次操作时，我们都保证了函数里左子树永远是 $l$ 右子树永远是 $r$ 这样我们才能保证平衡树的性质</li>
+<li>注意每个函数的 $return$ 条件</li>
+</ul>
 <h1 id="EX函数"><a href="#EX函数" class="headerlink" title="EX函数"></a>EX函数</h1><p>去看例题好了。。。。。。。。。。。</p>
 <h1 id="END"><a href="#END" class="headerlink" title="END"></a>END</h1>
       
@@ -707,7 +715,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#节点信息"><span class="nav-number">2.</span> <span class="nav-text">节点信息</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基本函数"><span class="nav-number">3.</span> <span class="nav-text">基本函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#split"><span class="nav-number">3.1.</span> <span class="nav-text">split</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本定义"><span class="nav-number">3.1.1.</span> <span class="nav-text">基本定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#code："><span class="nav-number">3.1.2.</span> <span class="nav-text">code：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#code解释"><span class="nav-number">3.1.3.</span> <span class="nav-text">code解释</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#merge"><span class="nav-number">3.2.</span> <span class="nav-text">merge</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本定义-1"><span class="nav-number">3.2.1.</span> <span class="nav-text">基本定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#code：-1"><span class="nav-number">3.2.2.</span> <span class="nav-text">code：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#code解释-1"><span class="nav-number">3.2.3.</span> <span class="nav-text">code解释</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#EX函数"><span class="nav-number">4.</span> <span class="nav-text">EX函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#END"><span class="nav-number">5.</span> <span class="nav-text">END</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#节点信息"><span class="nav-number">2.</span> <span class="nav-text">节点信息</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基本函数"><span class="nav-number">3.</span> <span class="nav-text">基本函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#split"><span class="nav-number">3.1.</span> <span class="nav-text">split</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本定义"><span class="nav-number">3.1.1.</span> <span class="nav-text">基本定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#code："><span class="nav-number">3.1.2.</span> <span class="nav-text">code：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#code解释"><span class="nav-number">3.1.3.</span> <span class="nav-text">code解释</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#merge"><span class="nav-number">3.2.</span> <span class="nav-text">merge</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本定义-1"><span class="nav-number">3.2.1.</span> <span class="nav-text">基本定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#code：-1"><span class="nav-number">3.2.2.</span> <span class="nav-text">code：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#code解释-1"><span class="nav-number">3.2.3.</span> <span class="nav-text">code解释</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#int-main"><span class="nav-number">4.</span> <span class="nav-text">int main</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一些注意"><span class="nav-number">5.</span> <span class="nav-text">一些注意</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#EX函数"><span class="nav-number">6.</span> <span class="nav-text">EX函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#END"><span class="nav-number">7.</span> <span class="nav-text">END</span></a></li></ol></div>
             
 
           </div>
@@ -753,7 +761,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共17.2k字</span>
+  <span class="post-count">博客全站共17.4k字</span>
 </div>
 
         
