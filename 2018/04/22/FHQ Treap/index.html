@@ -114,21 +114,21 @@
 
 
 
-  <meta name="description" content="FHQ Treap万岁，摒弃Splay ennnnnnnnn 说一说FHQ Treap，为什么这么推崇FHQ呢？？   只会FHQ Splay极其容易被卡成 $dog$ 但是很少听到FHQ被卡 FHQ支持持久化，但是Splay不行  所以推荐FHQ  这是个目录[TOC] #简介 首先FHQ是一种平衡树，而且是一种Treap的延伸物[^我是这么想的] ，然后首先你可以先学Treap，然后再来看这篇">
+  <meta name="description" content="FHQ Treap万岁，摒弃Splay">
 <meta name="keywords" content="algorithm of OI,FHQ Treap,平衡树">
 <meta property="og:type" content="article">
 <meta property="og:title" content="FHQ Treap">
 <meta property="og:url" content="http://pretend-fal.github.io/2018/04/22/FHQ Treap/index.html">
 <meta property="og:site_name" content="The world which is god and mine">
-<meta property="og:description" content="FHQ Treap万岁，摒弃Splay ennnnnnnnn 说一说FHQ Treap，为什么这么推崇FHQ呢？？   只会FHQ Splay极其容易被卡成 $dog$ 但是很少听到FHQ被卡 FHQ支持持久化，但是Splay不行  所以推荐FHQ  这是个目录[TOC] #简介 首先FHQ是一种平衡树，而且是一种Treap的延伸物[^我是这么想的] ，然后首先你可以先学Treap，然后再来看这篇">
+<meta property="og:description" content="FHQ Treap万岁，摒弃Splay">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://pretend-fal.github.io/pic/5.bmp">
 <meta property="og:image" content="http://pretend-fal.github.io/pic/6.bmp">
 <meta property="og:image" content="http://pretend-fal.github.io/pic/7.bmp">
-<meta property="og:updated_time" content="2018-04-22T08:34:36.238Z">
+<meta property="og:updated_time" content="2018-04-22T08:38:07.043Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="FHQ Treap">
-<meta name="twitter:description" content="FHQ Treap万岁，摒弃Splay ennnnnnnnn 说一说FHQ Treap，为什么这么推崇FHQ呢？？   只会FHQ Splay极其容易被卡成 $dog$ 但是很少听到FHQ被卡 FHQ支持持久化，但是Splay不行  所以推荐FHQ  这是个目录[TOC] #简介 首先FHQ是一种平衡树，而且是一种Treap的延伸物[^我是这么想的] ，然后首先你可以先学Treap，然后再来看这篇">
+<meta name="twitter:description" content="FHQ Treap万岁，摒弃Splay">
 <meta name="twitter:image" content="http://pretend-fal.github.io/pic/5.bmp">
 
 
@@ -424,6 +424,7 @@
 
       
         <p><del>FHQ Treap万岁，摒弃Splay</del></p>
+<a id="more"></a>
 <p>ennnnnnnnn 说一说FHQ Treap，为什么这么推崇FHQ呢？？ </p>
 <ul>
 <li><del>只会FHQ</del></li>
@@ -433,32 +434,27 @@
 <p>所以推荐FHQ</p>
 <hr>
 <p>这是个目录<br>[TOC]</p>
-<p>#简介</p>
-<p>首先FHQ是一种平衡树，而且是一种Treap的延伸物[^我是这么想的] ，然后首先你可以先学Treap，然后再来看这篇，这样子可能学起来就简单一些了，然后就会忘记Treap怎么码，只会FHQ了，反正我现在码Treap是要现推的</p>
+<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>首先FHQ是一种平衡树，而且是一种Treap的延伸物[^我是这么想的] ，然后首先你可以先学Treap，然后再来看这篇，这样子可能学起来就简单一些了，然后就会忘记Treap怎么码，只会FHQ了，反正我现在码Treap是要现推的</p>
 <p>FHQ Treap 又叫 <code>非旋Treap</code> 顾名思义，就是不旋转的Treap，总体来讲，会把Treap拆成一条条的链/子树，通过各种分离和拼接，来完成维护平衡树的工作  </p>
 <p>至于怎么拆成链/子树，可以看这个图</p>
 <p><img src="/pic/5.bmp" alt=""></p>
 <p>红线就是拆成的一条条的链</p>
-<p>#节点信息</p>
-<ul>
+<h1 id="节点信息"><a href="#节点信息" class="headerlink" title="节点信息"></a>节点信息</h1><ul>
 <li>$ls,rs$ 左右子树<strong>标号</strong></li>
 <li>$ra$ 优先级(rand())</li>
 <li>$w$ 该节点权值</li>
 <li>$siz$ 该子树大小</li>
 <li>。。。。。一些题里要求的</li>
 </ul>
-<p>#基本函数</p>
-<p>##split</p>
-<p>###基本定义<br>分离的意思，就是把一颗Treap以一种条件分离成两棵Treap，新的Treap是可以为空的，我们这里以权值为例，那么 $split$ 就可以是按照<code>大于 w ，小于等于 w</code> 来分离成两棵Treap：$l$ 和 $r$ </p>
+<h1 id="基本函数"><a href="#基本函数" class="headerlink" title="基本函数"></a>基本函数</h1><h2 id="split"><a href="#split" class="headerlink" title="split"></a>split</h2><h3 id="基本定义"><a href="#基本定义" class="headerlink" title="基本定义"></a>基本定义</h3><p>分离的意思，就是把一颗Treap以一种条件分离成两棵Treap，新的Treap是可以为空的，我们这里以权值为例，那么 $split$ 就可以是按照<code>大于 w ，小于等于 w</code> 来分离成两棵Treap：$l$ 和 $r$ </p>
 <p>同时，根据定义我们有：</p>
 <blockquote>
 <p>$l$ 中的每一个节点的权值都小于等于 $w$ </p>
 <p>$r$ 中的每一个节点的权值都大于 $w$</p>
 </blockquote>
-<p>###code：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">IL <span class="keyword">void</span> <span class="title">split</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> &amp;l,<span class="keyword">int</span> &amp;r,<span class="keyword">int</span> w)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!x) &#123; l=r=<span class="number">0</span>; <span class="keyword">return</span> ; &#125;</span><br><span class="line">    <span class="keyword">if</span>(Tr[x].w&lt;=w) &#123;</span><br><span class="line">        l=x;  <span class="comment">// 这里必须先赋值</span></span><br><span class="line">        split(Tr[x].r,Tr[l].r,r,w);</span><br><span class="line">        up(l);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        r=x;</span><br><span class="line">        split(Tr[x].l,l,Tr[r].l,w);</span><br><span class="line">        up(r);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="code："><a href="#code：" class="headerlink" title="code："></a>code：</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">IL <span class="keyword">void</span> <span class="title">split</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> &amp;l,<span class="keyword">int</span> &amp;r,<span class="keyword">int</span> w)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!x) &#123; l=r=<span class="number">0</span>; <span class="keyword">return</span> ; &#125;</span><br><span class="line">    <span class="keyword">if</span>(Tr[x].w&lt;=w) &#123;</span><br><span class="line">        l=x;  <span class="comment">// 这里必须先赋值</span></span><br><span class="line">        split(Tr[x].r,Tr[l].r,r,w);</span><br><span class="line">        up(l);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        r=x;</span><br><span class="line">        split(Tr[x].l,l,Tr[r].l,w);</span><br><span class="line">        up(r);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><del>我尽量写的能看懂了</del>  </p>
-<p>###code解释<br>由于平衡树的性质，如果当前节点的 $w_x$ 是小于等于我的分离接线 $w$ 点的话，那么当前节点的左子树任何一个权值 $w_l$ 都是小于 $w$ 的，那么我们就把当前节点以及左子树全部给 $l$ ，就像这张图 </p>
+<h3 id="code解释"><a href="#code解释" class="headerlink" title="code解释"></a>code解释</h3><p>由于平衡树的性质，如果当前节点的 $w_x$ 是小于等于我的分离接线 $w$ 点的话，那么当前节点的左子树任何一个权值 $w_l$ 都是小于 $w$ 的，那么我们就把当前节点以及左子树全部给 $l$ ，就像这张图 </p>
 <p><img src="/pic/6.bmp" alt=""></p>
 <p>这时候就可以发现我们当前节点的右子树是还没有确定的，因为这里面可能大于小于 $w$ 的节点都可能存在，我不画图了，自己考虑平衡树，然后我们现在要去考虑右子树，所以我们传入了 $Tr[x].r$ </p>
 <p>然后我们发现现在的 $l$ 的右子树是空的，所以如果之后向 $l$ 中加东西的话，就往右子树上加就好了，这里解释下有这样一些条件使得我们要往右子树加，而不是左子树</p>
@@ -469,22 +465,20 @@
 <p>这样就差不多了，至于右子树，自行参考左子树</p>
 <p>还有就是传址</p>
 <p>因为我们要修改一些儿子的编号，这样传址就可以直接在 $l=x$ 或者 $r=x$ 时直接修改了</p>
-<p>##merge</p>
-<p>###基本定义<br>这个是合并，就是把两个Treap合并成一个</p>
+<h2 id="merge"><a href="#merge" class="headerlink" title="merge"></a>merge</h2><h3 id="基本定义-1"><a href="#基本定义-1" class="headerlink" title="基本定义"></a>基本定义</h3><p>这个是合并，就是把两个Treap合并成一个</p>
 <p><del>有分离就肯定有合并。。。。。</del></p>
 <p>我们首先保证一个前提</p>
 <blockquote>
 <p>$l$ 的所有节点权值都是$&gt;=r$ 的权值的</p>
 </blockquote>
-<p>###code：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">IL <span class="keyword">int</span> <span class="title">merge</span><span class="params">(R II l,R II r)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(l*r==<span class="number">0</span>) <span class="keyword">return</span> l+r;</span><br><span class="line">    <span class="keyword">if</span>(Tr[l].ra&gt;Tr[r].ra) &#123;</span><br><span class="line">        Tr[l].r=merge(Tr[l].r,r);</span><br><span class="line">        up(l); <span class="keyword">return</span> l;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        Tr[r].l=merge(l,Tr[r].r);</span><br><span class="line">        up(r); <span class="keyword">return</span> r;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>###code解释<br>我们先有一张图：</p>
+<h3 id="code：-1"><a href="#code：-1" class="headerlink" title="code："></a>code：</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">IL <span class="keyword">int</span> <span class="title">merge</span><span class="params">(R II l,R II r)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(l*r==<span class="number">0</span>) <span class="keyword">return</span> l+r;</span><br><span class="line">    <span class="keyword">if</span>(Tr[l].ra&gt;Tr[r].ra) &#123;</span><br><span class="line">        Tr[l].r=merge(Tr[l].r,r);</span><br><span class="line">        up(l); <span class="keyword">return</span> l;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        Tr[r].l=merge(l,Tr[r].r);</span><br><span class="line">        up(r); <span class="keyword">return</span> r;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="code解释-1"><a href="#code解释-1" class="headerlink" title="code解释"></a>code解释</h3><p>我们先有一张图：</p>
 <p><img src="/pic/7.bmp" alt=""></p>
 <p>如果当前 $l$ 节点的优先级 $&gt;$ 当前 $r$ 节点优先级，那么我们就把 $r$ 放到 $l$ 的右子树中，这样我们保证了平衡树的性质，但是如果 $l$ 有右子树怎么办。。。。。。。</p>
 <p>这就化为了一个子问题，我们把 $r$ 和 $l$ 的右子树合并成一个Treap，然后作为 $l$ 的新右子树就OK了</p>
 <p>所以我们下传的是 $merge(Tr[l].r,r)$ </p>
 <p>这个比较简单，至于右子树，自行参考左子树</p>
-<p>#EX函数<br>去看例题好了。。。。。。。。。。。</p>
+<h1 id="EX函数"><a href="#EX函数" class="headerlink" title="EX函数"></a>EX函数</h1><p>去看例题好了。。。。。。。。。。。</p>
 <h1 id="END"><a href="#END" class="headerlink" title="END"></a>END</h1>
       
     </div>
@@ -713,7 +707,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#END"><span class="nav-number">1.</span> <span class="nav-text">END</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#节点信息"><span class="nav-number">2.</span> <span class="nav-text">节点信息</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基本函数"><span class="nav-number">3.</span> <span class="nav-text">基本函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#split"><span class="nav-number">3.1.</span> <span class="nav-text">split</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本定义"><span class="nav-number">3.1.1.</span> <span class="nav-text">基本定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#code："><span class="nav-number">3.1.2.</span> <span class="nav-text">code：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#code解释"><span class="nav-number">3.1.3.</span> <span class="nav-text">code解释</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#merge"><span class="nav-number">3.2.</span> <span class="nav-text">merge</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本定义-1"><span class="nav-number">3.2.1.</span> <span class="nav-text">基本定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#code：-1"><span class="nav-number">3.2.2.</span> <span class="nav-text">code：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#code解释-1"><span class="nav-number">3.2.3.</span> <span class="nav-text">code解释</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#EX函数"><span class="nav-number">4.</span> <span class="nav-text">EX函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#END"><span class="nav-number">5.</span> <span class="nav-text">END</span></a></li></ol></div>
             
 
           </div>
