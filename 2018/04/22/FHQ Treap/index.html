@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #cccccc; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #cccccc, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #cccccc;    /*上边框颜色*/
+        border-left-color: #cccccc;    /*左边框颜色*/
+    }
+</style>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.1.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/timg.jpg?v=6.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/timg.jpg?v=6.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/timg.jpg?v=6.1.0">
+
+
+  <link rel="mask-icon" href="/images/timg.jpg?v=6.1.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="FHQ Treap万岁，摒弃Splay ennnnnnnnn 说一说FHQ Treap，为什么这么推崇FHQ呢？？   只会FHQ Splay极其容易被卡成 $dog$ 但是很少听到FHQ被卡 FHQ支持持久化，但是Splay不行  所以推荐FHQ  这是个目录[TOC] #简介 首先FHQ是一种平衡树，而且是一种Treap的延伸物[^我是这么想的] ，然后首先你可以先学Treap，然后再来看这篇">
+<meta name="keywords" content="algorithm of OI,FHQ Treap,平衡树">
+<meta property="og:type" content="article">
+<meta property="og:title" content="FHQ Treap">
+<meta property="og:url" content="http://pretend-fal.github.io/2018/04/22/FHQ Treap/index.html">
+<meta property="og:site_name" content="The world which is god and mine">
+<meta property="og:description" content="FHQ Treap万岁，摒弃Splay ennnnnnnnn 说一说FHQ Treap，为什么这么推崇FHQ呢？？   只会FHQ Splay极其容易被卡成 $dog$ 但是很少听到FHQ被卡 FHQ支持持久化，但是Splay不行  所以推荐FHQ  这是个目录[TOC] #简介 首先FHQ是一种平衡树，而且是一种Treap的延伸物[^我是这么想的] ，然后首先你可以先学Treap，然后再来看这篇">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://pretend-fal.github.io/pic/5.bmp">
+<meta property="og:image" content="http://pretend-fal.github.io/pic/6.bmp">
+<meta property="og:image" content="http://pretend-fal.github.io/pic/7.bmp">
+<meta property="og:updated_time" content="2018-04-22T08:34:36.238Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="FHQ Treap">
+<meta name="twitter:description" content="FHQ Treap万岁，摒弃Splay ennnnnnnnn 说一说FHQ Treap，为什么这么推崇FHQ呢？？   只会FHQ Splay极其容易被卡成 $dog$ 但是很少听到FHQ被卡 FHQ支持持久化，但是Splay不行  所以推荐FHQ  这是个目录[TOC] #简介 首先FHQ是一种平衡树，而且是一种Treap的延伸物[^我是这么想的] ，然后首先你可以先学Treap，然后再来看这篇">
+<meta name="twitter:image" content="http://pretend-fal.github.io/pic/5.bmp">
+
+
+
+
+
+
+  <link rel="canonical" href="http://pretend-fal.github.io/2018/04/22/FHQ Treap/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>FHQ Treap | The world which is god and mine</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</head>
+
+
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas>
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
+   <script type="text/javascript" src="/js/src/fireworks.js"></script>
+
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/pretend-fal"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> 
+
+<div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">The world which is god and mine</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">pretend-fal</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="accessibility.nav_toggle">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+          
+  
+  <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />home</a>
+</li>
+
+      
+        
+        
+          
+  
+  <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />about</a>
+</li>
+
+      
+        
+        
+          
+  
+  <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />tags</a>
+</li>
+
+      
+        
+        
+          
+  
+  <li class="menu-item menu-item-schedule">
+    <a href="/schedule/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />schedule</a>
+</li>
+
+      
+        
+        
+          
+  
+  <li class="menu-item menu-item-links">
+    <a href="/links/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-fas fa-arrows-alt"></i> <br />links</a>
+</li>
+
+      
+
+      
+    </ul>
+  
+
+  
+    
+
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+    
+
+  
+
+
+  
+
+  
+</nav>
+
+
+  
+
+
+
+ </div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://pretend-fal.github.io/2018/04/22/FHQ Treap/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="pretend-fal">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/右侧头像.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="The world which is god and mine">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">FHQ Treap</h1>
+        
+
+        <div class="post-meta">
+        
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">post.posted</span>
+              
+              <time title="post.created" itemprop="dateCreated datePublished" datetime="2018-04-22T15:13:51+08:00">2018-04-22</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><del>FHQ Treap万岁，摒弃Splay</del></p>
+<p>ennnnnnnnn 说一说FHQ Treap，为什么这么推崇FHQ呢？？ </p>
+<ul>
+<li><del>只会FHQ</del></li>
+<li>Splay极其容易被卡成 $dog$ 但是很少听到FHQ被卡</li>
+<li>FHQ支持持久化，但是Splay不行</li>
+</ul>
+<p>所以推荐FHQ</p>
+<hr>
+<p>这是个目录<br>[TOC]</p>
+<p>#简介</p>
+<p>首先FHQ是一种平衡树，而且是一种Treap的延伸物[^我是这么想的] ，然后首先你可以先学Treap，然后再来看这篇，这样子可能学起来就简单一些了，然后就会忘记Treap怎么码，只会FHQ了，反正我现在码Treap是要现推的</p>
+<p>FHQ Treap 又叫 <code>非旋Treap</code> 顾名思义，就是不旋转的Treap，总体来讲，会把Treap拆成一条条的链/子树，通过各种分离和拼接，来完成维护平衡树的工作  </p>
+<p>至于怎么拆成链/子树，可以看这个图</p>
+<p><img src="/pic/5.bmp" alt=""></p>
+<p>红线就是拆成的一条条的链</p>
+<p>#节点信息</p>
+<ul>
+<li>$ls,rs$ 左右子树<strong>标号</strong></li>
+<li>$ra$ 优先级(rand())</li>
+<li>$w$ 该节点权值</li>
+<li>$siz$ 该子树大小</li>
+<li>。。。。。一些题里要求的</li>
+</ul>
+<p>#基本函数</p>
+<p>##split</p>
+<p>###基本定义<br>分离的意思，就是把一颗Treap以一种条件分离成两棵Treap，新的Treap是可以为空的，我们这里以权值为例，那么 $split$ 就可以是按照<code>大于 w ，小于等于 w</code> 来分离成两棵Treap：$l$ 和 $r$ </p>
+<p>同时，根据定义我们有：</p>
+<blockquote>
+<p>$l$ 中的每一个节点的权值都小于等于 $w$ </p>
+<p>$r$ 中的每一个节点的权值都大于 $w$</p>
+</blockquote>
+<p>###code：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">IL <span class="keyword">void</span> <span class="title">split</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> &amp;l,<span class="keyword">int</span> &amp;r,<span class="keyword">int</span> w)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!x) &#123; l=r=<span class="number">0</span>; <span class="keyword">return</span> ; &#125;</span><br><span class="line">    <span class="keyword">if</span>(Tr[x].w&lt;=w) &#123;</span><br><span class="line">        l=x;  <span class="comment">// 这里必须先赋值</span></span><br><span class="line">        split(Tr[x].r,Tr[l].r,r,w);</span><br><span class="line">        up(l);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        r=x;</span><br><span class="line">        split(Tr[x].l,l,Tr[r].l,w);</span><br><span class="line">        up(r);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><del>我尽量写的能看懂了</del>  </p>
+<p>###code解释<br>由于平衡树的性质，如果当前节点的 $w_x$ 是小于等于我的分离接线 $w$ 点的话，那么当前节点的左子树任何一个权值 $w_l$ 都是小于 $w$ 的，那么我们就把当前节点以及左子树全部给 $l$ ，就像这张图 </p>
+<p><img src="/pic/6.bmp" alt=""></p>
+<p>这时候就可以发现我们当前节点的右子树是还没有确定的，因为这里面可能大于小于 $w$ 的节点都可能存在，我不画图了，自己考虑平衡树，然后我们现在要去考虑右子树，所以我们传入了 $Tr[x].r$ </p>
+<p>然后我们发现现在的 $l$ 的右子树是空的，所以如果之后向 $l$ 中加东西的话，就往右子树上加就好了，这里解释下有这样一些条件使得我们要往右子树加，而不是左子树</p>
+<ul>
+<li>右子树是空的</li>
+<li>我们之后处理的是当前节点的右子树，里面的任何一个权值都大于当前节点的权值，所以根据平衡树的性质，我们之后的点要放到右子树中</li>
+</ul>
+<p>这样就差不多了，至于右子树，自行参考左子树</p>
+<p>还有就是传址</p>
+<p>因为我们要修改一些儿子的编号，这样传址就可以直接在 $l=x$ 或者 $r=x$ 时直接修改了</p>
+<p>##merge</p>
+<p>###基本定义<br>这个是合并，就是把两个Treap合并成一个</p>
+<p><del>有分离就肯定有合并。。。。。</del></p>
+<p>我们首先保证一个前提</p>
+<blockquote>
+<p>$l$ 的所有节点权值都是$&gt;=r$ 的权值的</p>
+</blockquote>
+<p>###code：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">IL <span class="keyword">int</span> <span class="title">merge</span><span class="params">(R II l,R II r)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(l*r==<span class="number">0</span>) <span class="keyword">return</span> l+r;</span><br><span class="line">    <span class="keyword">if</span>(Tr[l].ra&gt;Tr[r].ra) &#123;</span><br><span class="line">        Tr[l].r=merge(Tr[l].r,r);</span><br><span class="line">        up(l); <span class="keyword">return</span> l;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        Tr[r].l=merge(l,Tr[r].r);</span><br><span class="line">        up(r); <span class="keyword">return</span> r;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>###code解释<br>我们先有一张图：</p>
+<p><img src="/pic/7.bmp" alt=""></p>
+<p>如果当前 $l$ 节点的优先级 $&gt;$ 当前 $r$ 节点优先级，那么我们就把 $r$ 放到 $l$ 的右子树中，这样我们保证了平衡树的性质，但是如果 $l$ 有右子树怎么办。。。。。。。</p>
+<p>这就化为了一个子问题，我们把 $r$ 和 $l$ 的右子树合并成一个Treap，然后作为 $l$ 的新右子树就OK了</p>
+<p>所以我们下传的是 $merge(Tr[l].r,r)$ </p>
+<p>这个比较简单，至于右子树，自行参考左子树</p>
+<p>#EX函数<br>去看例题好了。。。。。。。。。。。</p>
+<h1 id="END"><a href="#END" class="headerlink" title="END"></a>END</h1>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/algorithm-of-OI/" rel="tag"># algorithm of OI</a>
+          
+            <a href="/tags/FHQ-Treap/" rel="tag"># FHQ Treap</a>
+          
+            <a href="/tags/平衡树/" rel="tag"># 平衡树</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/18/Tire and AC自动机/" rel="next" title="Tire and AC自动机">
+                <i class="fa fa-chevron-left"></i> Tire and AC自动机
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            sidebar.toc
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            sidebar.overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/右侧头像.jpeg"
+                alt="pretend-fal" />
+            
+              <p class="site-author-name" itemprop="name">pretend-fal</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives">
+                
+                    <span class="site-state-item-count">21</span>
+                    <span class="site-state-item-name">state.posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">17</span>
+                    <span class="site-state-item-name">state.tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:1208247864@qq.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#END"><span class="nav-number">1.</span> <span class="nav-text">END</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-star"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">pretend-fal</span>
+
+  
+
+  
+</div>
+
+
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共17.2k字</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.1.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
