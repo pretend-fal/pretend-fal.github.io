@@ -114,21 +114,21 @@
 
 
 
-  <meta name="description" content="写在前面 Trie 是一个前置知识，所以我就从网上找了些介绍，然后借(Ctrl+C)鉴(Ctrl+V)过来了，所以要是有些神乎其神的地方我要是解释不了，大家可以自行百度 QAQ 然后是 AC自动机 这个是这篇 blog 主要讲的东西，但是我觉得对于这种字符串的东西，还是口胡的地方比较多，所以有关 AC自动机 的篇幅也不会太长，主要是在黑板上画来画去  然后我们就开始了   Trie or 字典树字">
+  <meta name="description" content="[TOC] 写在前面 Trie 是一个前置知识，所以我就从网上找了些介绍，然后借(Ctrl+C)鉴(Ctrl+V)过来了，所以要是有些神乎其神的地方我要是解释不了，大家可以自行百度 QAQ 然后是 AC自动机 这个是这篇 blog 主要讲的东西，但是我觉得对于这种字符串的东西，还是口胡的地方比较多，所以有关 AC自动机 的篇幅也不会太长，主要是在黑板上画来画去  然后我们就开始了   Trie o">
 <meta name="keywords" content="algorithm of OI,Tire,AC自动机">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Tire and AC自动机">
 <meta property="og:url" content="http://pretend-fal.github.io/2018/04/18/Tire and AC自动机/index.html">
 <meta property="og:site_name" content="The world which is god and mine">
-<meta property="og:description" content="写在前面 Trie 是一个前置知识，所以我就从网上找了些介绍，然后借(Ctrl+C)鉴(Ctrl+V)过来了，所以要是有些神乎其神的地方我要是解释不了，大家可以自行百度 QAQ 然后是 AC自动机 这个是这篇 blog 主要讲的东西，但是我觉得对于这种字符串的东西，还是口胡的地方比较多，所以有关 AC自动机 的篇幅也不会太长，主要是在黑板上画来画去  然后我们就开始了   Trie or 字典树字">
+<meta property="og:description" content="[TOC] 写在前面 Trie 是一个前置知识，所以我就从网上找了些介绍，然后借(Ctrl+C)鉴(Ctrl+V)过来了，所以要是有些神乎其神的地方我要是解释不了，大家可以自行百度 QAQ 然后是 AC自动机 这个是这篇 blog 主要讲的东西，但是我觉得对于这种字符串的东西，还是口胡的地方比较多，所以有关 AC自动机 的篇幅也不会太长，主要是在黑板上画来画去  然后我们就开始了   Trie o">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://pretend-fal.github.io/pic/2.png">
 <meta property="og:image" content="http://pretend-fal.github.io/pic/3.png">
 <meta property="og:image" content="http://pretend-fal.github.io/pic/4.png">
-<meta property="og:updated_time" content="2018-04-22T08:33:55.044Z">
+<meta property="og:updated_time" content="2018-04-25T06:09:46.033Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Tire and AC自动机">
-<meta name="twitter:description" content="写在前面 Trie 是一个前置知识，所以我就从网上找了些介绍，然后借(Ctrl+C)鉴(Ctrl+V)过来了，所以要是有些神乎其神的地方我要是解释不了，大家可以自行百度 QAQ 然后是 AC自动机 这个是这篇 blog 主要讲的东西，但是我觉得对于这种字符串的东西，还是口胡的地方比较多，所以有关 AC自动机 的篇幅也不会太长，主要是在黑板上画来画去  然后我们就开始了   Trie or 字典树字">
+<meta name="twitter:description" content="[TOC] 写在前面 Trie 是一个前置知识，所以我就从网上找了些介绍，然后借(Ctrl+C)鉴(Ctrl+V)过来了，所以要是有些神乎其神的地方我要是解释不了，大家可以自行百度 QAQ 然后是 AC自动机 这个是这篇 blog 主要讲的东西，但是我觉得对于这种字符串的东西，还是口胡的地方比较多，所以有关 AC自动机 的篇幅也不会太长，主要是在黑板上画来画去  然后我们就开始了   Trie o">
 <meta name="twitter:image" content="http://pretend-fal.github.io/pic/2.png">
 
 
@@ -423,7 +423,8 @@
       
 
       
-        <h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><ul>
+        <p>[TOC]</p>
+<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><ul>
 <li>Trie 是一个前置知识，所以我就从网上找了些介绍，然后借(Ctrl+C)鉴(Ctrl+V)过来了，所以要是有些神乎其神的地方我要是解释不了，大家可以自行百度 QAQ</li>
 <li>然后是 AC自动机 这个是这篇 blog 主要讲的东西，但是我觉得对于这种字符串的东西，还是口胡的地方比较多，所以有关 AC自动机 的篇幅也不会太长，主要是在黑板上画来画去 </li>
 <li>然后我们就开始了</li>
@@ -465,24 +466,24 @@
 <p>然后 Trie 我们就讲到这里</p>
 <hr>
 <h1 id="AC自动机"><a href="#AC自动机" class="headerlink" title="AC自动机"></a>AC自动机</h1><p><em>伪·自动AC机 nice</em></p>
-<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><h5 id="了解"><a href="#了解" class="headerlink" title="了解"></a>了解</h5><p>在学一个东西之前，我们要先了解这个东西是用来干什么的，所以呢，我现在要先说出一个最模糊的概念，也是最容易忽略的：</p>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><h3 id="了解"><a href="#了解" class="headerlink" title="了解"></a>了解</h3><p>在学一个东西之前，我们要先了解这个东西是用来干什么的，所以呢，我现在要先说出一个最模糊的概念，也是最容易忽略的：</p>
 <blockquote>
 <p>AC自动机是处理字符串的有力工具</p>
 </blockquote>
 <p>然后我们再继续了解下它的其他概念；</p>
-<h5 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h5><ul>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><ul>
 <li><strong>AC自动机 </strong> <code>Aho-Corasick automation，该算法在1975年产生于贝尔实验室，是著名的多模匹配算法之一。</code></li>
 <li><strong>常见例子</strong> <code>给出n个单词，再给出一段包含m个字符的文章，让你找出有多少个单词在文章里出现过。</code></li>
 <li><strong>学习前提</strong> <code>要搞懂AC自动机，先得有字典树Trie和KMP模式匹配算法的基础知识。</code></li>
 <li><strong>与KMP区分</strong> <code>KMP算法是单模式串的字符匹配算法，AC自动机是多模式串的字符匹配算法。</code></li>
 </ul>
-<h4 id="大致思路"><a href="#大致思路" class="headerlink" title="大致思路"></a>大致思路</h4><h5 id="三步走"><a href="#三步走" class="headerlink" title="三步走"></a>三步走</h5><ul>
+<h2 id="大致思路"><a href="#大致思路" class="headerlink" title="大致思路"></a>大致思路</h2><h3 id="三步走"><a href="#三步走" class="headerlink" title="三步走"></a>三步走</h3><ul>
 <li>Trie树</li>
 <li>Fail指针</li>
 <li>匹配</li>
 </ul>
 <p>Trie 我们之前讲了，所以呢，我们已经走了第一步，【开心】那么我们还有两步要走，那么当然是接着走了。。。。</p>
-<h2 id="思想实现"><a href="#思想实现" class="headerlink" title="思想实现"></a>思想实现</h2><h5 id="我要做什么？？！"><a href="#我要做什么？？！" class="headerlink" title="我要做什么？？！"></a>我要做什么？？！</h5><ul>
+<h2 id="思想实现"><a href="#思想实现" class="headerlink" title="思想实现"></a>思想实现</h2><h3 id="我要做什么？？！"><a href="#我要做什么？？！" class="headerlink" title="我要做什么？？！"></a>我要做什么？？！</h3><ul>
 <li>这是一个值得思考的问题，只有我们知道了要干什么我们才能去实现；</li>
 <li>就像刚刚简介里的经典问题：<code>给出n个单词，再给出一段包含m个字符的文章，让你找出有多少个单词在文章里出现过。</code></li>
 <li>那么我们通过解决这个子问题来解决我们要干什么这个大问题；</li>
@@ -499,7 +500,7 @@
 <li>​</li>
 </ul>
 <p>然后我说一下我想说的</p>
-<h3 id="1-暴力"><a href="#1-暴力" class="headerlink" title="1.暴力"></a>1.暴力</h3><ul>
+<h2 id="各种做法"><a href="#各种做法" class="headerlink" title="各种做法"></a>各种做法</h2><h3 id="1-暴力"><a href="#1-暴力" class="headerlink" title="1.暴力"></a>1.暴力</h3><ul>
 <li>首先这是个极其不错的方法，至少错误率会比较低，而且好写，再而且，这是骗分的手段之一；</li>
 <li>然后我们考虑实现</li>
 <li>显然枚举每个单词，然后在文章里挨个匹配</li>
@@ -542,8 +543,8 @@
 <p>B：没用。。。</p>
 <p>A：扔！！！</p>
 </blockquote>
-<h4 id="code实现"><a href="#code实现" class="headerlink" title="code实现"></a>code实现</h4><h5 id="Build-fail"><a href="#Build-fail" class="headerlink" title="Build_fail"></a>Build_fail</h5><p>我们第二步是建立fail指针，所以我们需要了解fail具体是干什么的； </p>
-<h6 id="插播一段-fail"><a href="#插播一段-fail" class="headerlink" title="插播一段 fail"></a>插播一段 fail</h6><ul>
+<h2 id="code实现"><a href="#code实现" class="headerlink" title="code实现"></a>code实现</h2><h3 id="Build-fail"><a href="#Build-fail" class="headerlink" title="Build_fail"></a>Build_fail</h3><p>我们第二步是建立fail指针，所以我们需要了解fail具体是干什么的； </p>
+<h4 id="插播一段-fail"><a href="#插播一段-fail" class="headerlink" title="插播一段 fail"></a>插播一段 fail</h4><ul>
 <li>类似KMP中的next <code>令当前节点 A 的 fail 所指向的是节点 B ，则有 B 是A的后缀【解释】</code></li>
 <li>这个 fail 就是AC自动机的优化之处 <code>因为它和 KMP 的 next 数组一样，可以跳转到至少不会更差的地方</code></li>
 <li>为什么不会更差？？！ <code>我们保证了当前节点 A 的 fail 指针所指向的节点 B ，以 B 为结尾的单词串一定是以 A 为结尾的单词的后缀；至于原因，自行KMP</code></li>
@@ -572,7 +573,7 @@
 <li>T3 HDU 2896 病毒侵袭</li>
 <li>T4 并没有T4，略略略，以上的T1理解，T2，T3。。。。算了</li>
 </ul>
-<h4 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h4><ul>
+<h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><ul>
 <li>T1 裸的AC自动机（都模板了好不，刚讲的）</li>
 <li>T2 。。。。。。。。。。。。</li>
 <li>T3 。。。。。。。。。。。。。。</li>
@@ -810,7 +811,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#写在前面"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Trie-or-字典树"><span class="nav-number"></span> <span class="nav-text">Trie or 字典树</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#字典树的概念"><span class="nav-number">0.0.1.</span> <span class="nav-text">字典树的概念</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#那什么是Trie？？！"><span class="nav-number">0.0.2.</span> <span class="nav-text">那什么是Trie？？！</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#字典树有三个基本性质："><span class="nav-number">0.0.3.</span> <span class="nav-text">字典树有三个基本性质：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#But-why？？！"><span class="nav-number">0.1.</span> <span class="nav-text">But why？？！</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#because-这是基本性质"><span class="nav-number">0.2.</span> <span class="nav-text">because 这是基本性质</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优点"><span class="nav-number">1.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缺点"><span class="nav-number">2.</span> <span class="nav-text">缺点</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#AC自动机"><span class="nav-number"></span> <span class="nav-text">AC自动机</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number"></span> <span class="nav-text">简介</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#了解"><span class="nav-number">0.0.1.</span> <span class="nav-text">了解</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#其他"><span class="nav-number">0.0.2.</span> <span class="nav-text">其他</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#大致思路"><span class="nav-number">0.1.</span> <span class="nav-text">大致思路</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#三步走"><span class="nav-number">0.1.1.</span> <span class="nav-text">三步走</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思想实现"><span class="nav-number"></span> <span class="nav-text">思想实现</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#我要做什么？？！"><span class="nav-number">0.0.1.</span> <span class="nav-text">我要做什么？？！</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-暴力"><span class="nav-number">1.</span> <span class="nav-text">1.暴力</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-KMP优化"><span class="nav-number">2.</span> <span class="nav-text">2.KMP优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-AC自动机优化"><span class="nav-number">3.</span> <span class="nav-text">3.AC自动机优化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#每个新事物的开始都是异想天开"><span class="nav-number">3.1.</span> <span class="nav-text">每个新事物的开始都是异想天开</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#额，上一个好像没什么用"><span class="nav-number">3.2.</span> <span class="nav-text">额，上一个好像没什么用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#没想到也要想到。。。。"><span class="nav-number">3.3.</span> <span class="nav-text">没想到也要想到。。。。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#但是那些和这-k-个不一样的呢"><span class="nav-number">3.4.</span> <span class="nav-text">但是那些和这 k 个不一样的呢</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#code实现"><span class="nav-number">3.5.</span> <span class="nav-text">code实现</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Build-fail"><span class="nav-number">3.5.1.</span> <span class="nav-text">Build_fail</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#插播一段-fail"><span class="nav-number">3.5.1.1.</span> <span class="nav-text">插播一段 fail</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简单应用"><span class="nav-number"></span> <span class="nav-text">简单应用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#solution"><span class="nav-number">0.1.</span> <span class="nav-text">solution</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#END"><span class="nav-number"></span> <span class="nav-text">END</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#写在前面"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Trie-or-字典树"><span class="nav-number"></span> <span class="nav-text">Trie or 字典树</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#字典树的概念"><span class="nav-number">0.0.1.</span> <span class="nav-text">字典树的概念</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#那什么是Trie？？！"><span class="nav-number">0.0.2.</span> <span class="nav-text">那什么是Trie？？！</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#字典树有三个基本性质："><span class="nav-number">0.0.3.</span> <span class="nav-text">字典树有三个基本性质：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#But-why？？！"><span class="nav-number">0.1.</span> <span class="nav-text">But why？？！</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#because-这是基本性质"><span class="nav-number">0.2.</span> <span class="nav-text">because 这是基本性质</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优点"><span class="nav-number">1.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缺点"><span class="nav-number">2.</span> <span class="nav-text">缺点</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#AC自动机"><span class="nav-number"></span> <span class="nav-text">AC自动机</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number"></span> <span class="nav-text">简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#了解"><span class="nav-number">1.</span> <span class="nav-text">了解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他"><span class="nav-number">2.</span> <span class="nav-text">其他</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#大致思路"><span class="nav-number"></span> <span class="nav-text">大致思路</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#三步走"><span class="nav-number">1.</span> <span class="nav-text">三步走</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思想实现"><span class="nav-number"></span> <span class="nav-text">思想实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#我要做什么？？！"><span class="nav-number">1.</span> <span class="nav-text">我要做什么？？！</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#各种做法"><span class="nav-number"></span> <span class="nav-text">各种做法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-暴力"><span class="nav-number">1.</span> <span class="nav-text">1.暴力</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-KMP优化"><span class="nav-number">2.</span> <span class="nav-text">2.KMP优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-AC自动机优化"><span class="nav-number">3.</span> <span class="nav-text">3.AC自动机优化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#每个新事物的开始都是异想天开"><span class="nav-number">3.1.</span> <span class="nav-text">每个新事物的开始都是异想天开</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#额，上一个好像没什么用"><span class="nav-number">3.2.</span> <span class="nav-text">额，上一个好像没什么用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#没想到也要想到。。。。"><span class="nav-number">3.3.</span> <span class="nav-text">没想到也要想到。。。。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#但是那些和这-k-个不一样的呢"><span class="nav-number">3.4.</span> <span class="nav-text">但是那些和这 k 个不一样的呢</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#code实现"><span class="nav-number"></span> <span class="nav-text">code实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Build-fail"><span class="nav-number">1.</span> <span class="nav-text">Build_fail</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#插播一段-fail"><span class="nav-number">1.1.</span> <span class="nav-text">插播一段 fail</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简单应用"><span class="nav-number"></span> <span class="nav-text">简单应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#solution"><span class="nav-number"></span> <span class="nav-text">solution</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#END"><span class="nav-number"></span> <span class="nav-text">END</span></a></div>
             
 
           </div>
