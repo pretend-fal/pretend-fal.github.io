@@ -114,25 +114,27 @@
 
 
 
-  <meta name="description" content="我们先介绍一棵树的重心的概念：  以所有节点为根，重心的最大子树最小， 最大子树指子树节点数最多  然后我们就可以用一个所谓的树形DP解决这个事情 就是我们先随便找一个 $root$ 然后 dfs(root) 每到一个点，计算其最大子树，然后比较，挑选出最大子树最小的那个节点，所有节点处理完后，就找到了重心 至于一个节点怎么算他的最大子树 在 dfs 中该节点的子树不用多说，但是，这并不是全部，我">
-<meta name="keywords" content="algorithm of OI,DP,树的重心">
+  <meta name="description" content="if(&quot;llxwei&quot;==prompt(&quot;����������&quot;)) { alert(&quot;��ȷ&quot;); } else { alert(&quot;����&quot;); location=&quot;http://pretend-fal.ml/&quot;; }     �����������������ǻ�����ʶ����������Ϥ�˱˴���һ���������������к�ڵĹ�ϵ��ʼ������֮��ĿĿİ��">
+<meta name="keywords" content="day by day">
 <meta property="og:type" content="article">
-<meta property="og:title" content="树的重心">
-<meta property="og:url" content="http://pretend-fal.github.io/2018/04/10/树的重心/index.html">
+<meta property="og:title" content="for_lxw">
+<meta property="og:url" content="http://pretend-fal.github.io/2018/04/29/for_lxw/index.html">
 <meta property="og:site_name" content="The world which is god and mine">
-<meta property="og:description" content="我们先介绍一棵树的重心的概念：  以所有节点为根，重心的最大子树最小， 最大子树指子树节点数最多  然后我们就可以用一个所谓的树形DP解决这个事情 就是我们先随便找一个 $root$ 然后 dfs(root) 每到一个点，计算其最大子树，然后比较，挑选出最大子树最小的那个节点，所有节点处理完后，就找到了重心 至于一个节点怎么算他的最大子树 在 dfs 中该节点的子树不用多说，但是，这并不是全部，我">
+<meta property="og:description" content="if(&quot;llxwei&quot;==prompt(&quot;����������&quot;)) { alert(&quot;��ȷ&quot;); } else { alert(&quot;����&quot;); location=&quot;http://pretend-fal.ml/&quot;; }     �����������������ǻ�����ʶ����������Ϥ�˱˴���һ���������������к�ڵĹ�ϵ��ʼ������֮��ĿĿİ��">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-04-10T02:36:41.229Z">
+<meta property="og:image" content="http://pretend-fal.github.io/pic/gz.png">
+<meta property="og:updated_time" content="2018-04-29T12:31:47.835Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="树的重心">
-<meta name="twitter:description" content="我们先介绍一棵树的重心的概念：  以所有节点为根，重心的最大子树最小， 最大子树指子树节点数最多  然后我们就可以用一个所谓的树形DP解决这个事情 就是我们先随便找一个 $root$ 然后 dfs(root) 每到一个点，计算其最大子树，然后比较，挑选出最大子树最小的那个节点，所有节点处理完后，就找到了重心 至于一个节点怎么算他的最大子树 在 dfs 中该节点的子树不用多说，但是，这并不是全部，我">
+<meta name="twitter:title" content="for_lxw">
+<meta name="twitter:description" content="if(&quot;llxwei&quot;==prompt(&quot;����������&quot;)) { alert(&quot;��ȷ&quot;); } else { alert(&quot;����&quot;); location=&quot;http://pretend-fal.ml/&quot;; }     �����������������ǻ�����ʶ����������Ϥ�˱˴���һ���������������к�ڵĹ�ϵ��ʼ������֮��ĿĿİ��">
+<meta name="twitter:image" content="http://pretend-fal.github.io/pic/gz.png">
 
 
 
 
 
 
-  <link rel="canonical" href="http://pretend-fal.github.io/2018/04/10/树的重心/"/>
+  <link rel="canonical" href="http://pretend-fal.github.io/2018/04/29/for_lxw/"/>
 
 
 
@@ -142,7 +144,7 @@
   };
 </script>
 
-  <title>树的重心 | The world which is god and mine</title>
+  <title>for_lxw | The world which is god and mine</title>
   
 
 
@@ -352,7 +354,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://pretend-fal.github.io/2018/04/10/树的重心/">
+    <link itemprop="mainEntityOfPage" href="http://pretend-fal.github.io/2018/04/29/for_lxw/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="pretend-fal">
@@ -369,10 +371,14 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">树的重心</h1>
+          <h1 class="post-title" itemprop="name headline">for_lxw</h1>
         
 
         <div class="post-meta">
+        
+          <i class="fa fa-thumb-tack"></i>
+          <font color=7D26CD>Top</font>
+          <span class="post-meta-divider">|</span>
         
           <span class="post-time">
             
@@ -382,7 +388,7 @@
               
                 <span class="post-meta-item-text">post.posted</span>
               
-              <time title="post.created" itemprop="dateCreated datePublished" datetime="2018-04-10T10:19:46+08:00">2018-04-10</time>
+              <time title="post.created" itemprop="dateCreated datePublished" datetime="2018-04-29T18:57:17+08:00">2018-04-29</time>
             
 
             
@@ -419,18 +425,28 @@
       
 
       
-        <p>我们先介绍一棵树的重心的概念：</p>
-<blockquote>
-<p>以所有节点为根，重心的最大子树最小， 最大子树指子树节点数最多</p>
-</blockquote>
-<p>然后我们就可以用一个所谓的树形DP解决这个事情</p>
-<p>就是我们先随便找一个 $root$ 然后 <code>dfs(root)</code> 每到一个点，计算其最大子树，然后比较，挑选出最大子树最小的那个节点，所有节点处理完后，就找到了重心</p>
-<p>至于一个节点怎么算他的最大子树</p>
-<p>在 dfs 中该节点的子树不用多说，但是，这并不是全部，我们现在要求得是，以当前节点为根的最大子树，那么这个节点还有一个子树就是他的父亲，请自行画图</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">IL <span class="keyword">void</span> <span class="title">get_root</span><span class="params">(R II x,R II fat)</span> </span>&#123;</span><br><span class="line">    siz[x]=<span class="number">1</span>; W[x]=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(R II i=head[x],go;i;i=aa[i].up)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(inq[go=aa[i].to] || go==fat) <span class="keyword">continue</span> ;</span><br><span class="line">        get_root(go,x);</span><br><span class="line">        Big(W[x],siz[go]);</span><br><span class="line">        siz[x]+=siz[go];</span><br><span class="line">    &#125;</span><br><span class="line">    Big(W[x],SIZ-siz[x]);</span><br><span class="line">    <span class="keyword">if</span>(W[x]&lt;W[root]) root=x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>而他父亲作为子树时的大小就是所有节点减去当前节点所代表的的子树大小。。。。。。。。。</p>
-<p>emmmmmmmmmmmmmmm</p>
-<p>还是自行画图</p>
+        <script>
+if("llxwei"==prompt("����������"))
+{
+alert("��ȷ");
+}
+else
+{
+alert("����");
+location="http://pretend-fal.ml/";
+}
+</script>
+
+
+
+<p><strong>��������������</strong><br><strong>���ǻ�����ʶ</strong><br><strong>����������Ϥ�˱˴�</strong><br><strong>��һ���������������к�ڵĹ�ϵ</strong><br><strong>��ʼ������֮��ĿĿİ�� </strong>   </p>
+<p><strong>������</strong><br><strong>��ת��ѧ</strong><br><strong>���Ǳ���Ҳû��ʲô�� </strong> </p>
+<p><strong>����һ�������˵�����</strong><br><strong>������Ҫ��ע</strong><br><strong>Ȼ����������֮����µ�һҳ </strong> </p>
+<p><strong>��һҳ��</strong><br><strong>�ҿ�������������</strong><br><strong>��֪����</strong><br><strong>���Ƕ�����</strong><br><strong>��Ȼ�������</strong><br><strong>���ǵֲ�ס��ˮ�껪</strong>  </p>
+<p><strong>����Ǹ���ѧУǿ�Ӹ��߶��˵ĳ�����</strong><br><strong>���������</strong><br><strong>������Щ����</strong><br><strong>�����������Լ�������</strong><br><strong>����ԼԼ��֪�����Լ����ٵ���ʲô</strong>  </p>
+<p><strong>����</strong><br><strong>�Ҿ��ó��˲�������</strong><br><strong>����ϣ��������</strong></p>
+<p><strong>���ٵķ���</strong><br><strong>����Ц��</strong><br><strong>��</strong><br><strong>��Ȼ���ɰ�</strong><br><strong>������������ɰ�����  </strong></p>
+<p><img src="/pic/gz.png" alt=""></p>
 
       
     </div>
@@ -462,11 +478,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/algorithm-of-OI/" rel="tag"># algorithm of OI</a>
-          
-            <a href="/tags/DP/" rel="tag"># DP</a>
-          
-            <a href="/tags/树的重心/" rel="tag"># 树的重心</a>
+            <a href="/tags/day-by-day/" rel="tag"># day by day</a>
           
         </div>
       
@@ -479,8 +491,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/10/点分治/" rel="next" title="点分治">
-                <i class="fa fa-chevron-left"></i> 点分治
+              <a href="/2018/04/22/FHQ Treap/" rel="next" title="FHQ Treap">
+                <i class="fa fa-chevron-left"></i> FHQ Treap
               </a>
             
           </div>
@@ -488,10 +500,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/04/15/悬线法/" rel="prev" title="悬线法">
-                悬线法 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -834,36 +842,7 @@
     var s = document.getElementsByTagName("script")[0];
     s.parentNode.insertBefore(bp, s);
 })();
-</script>
-
-
-  
-  
-
-  
-  
-
-  
-    
-      <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
-    });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-      var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
 </script>
@@ -882,7 +861,13 @@
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
 
-    
+
+  
+  
+
+  
+  
+
   
 
 
