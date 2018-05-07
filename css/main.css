@@ -1889,7 +1889,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #a2ff87;
+  background: #acff8e;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2649,17 +2649,6 @@ embed {
 }
 .links-of-blogroll-inline .links-of-blogroll-item {
   display: inline-block;
-}
-@media screen and (min-width: 1200px) {
-  body {
-    background-image: url("/pic/BG0.jpg");
-    background-repeat: unrepeat;
-    background-attachment: fixed;
-    background-position: 800% 800%;
-  }
-  #footer a {
-    color: #eee;
-  }
 }
 .post {
   margin-top: 60px;
