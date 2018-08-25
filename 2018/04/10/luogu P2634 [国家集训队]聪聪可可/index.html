@@ -115,7 +115,7 @@
 
 
   <meta name="description" content="这个题呢，就是点分治，因为首先题面可以解释为求有多少条路径长度是 3 的倍数，同一个点长度为 0，不同点算两次 然后就点分治好了，这个题总体来讲是比较裸的，毕竟我这种只去年写过一次点分治的模板题得蒟蒻都看出来了。。。。。。。。。 然后边长 $mod 3$ 存起来就好了 12345678910111213141516171819202122232425262728293031323334353637">
-<meta name="keywords" content="problem of OI,luogu,solution,点分治">
+<meta name="keywords" content="problem of OI,点分治,luogu,solution">
 <meta property="og:type" content="article">
 <meta property="og:title" content="luogu P2634 [国家集训队]聪聪可可">
 <meta property="og:url" content="http://pretend-fal.github.io/2018/04/10/luogu P2634 [国家集训队]聪聪可可/index.html">
@@ -395,6 +395,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/04/10/luogu P2634 [国家集训队]聪聪可可/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">post.comments_countsymbol.colon</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/04/10/luogu P2634 [国家集训队]聪聪可可/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -455,11 +465,11 @@
           
             <a href="/tags/problem-of-OI/" rel="tag"># problem of OI</a>
           
+            <a href="/tags/点分治/" rel="tag"># 点分治</a>
+          
             <a href="/tags/luogu/" rel="tag"># luogu</a>
           
             <a href="/tags/solution/" rel="tag"># solution</a>
-          
-            <a href="/tags/点分治/" rel="tag"># 点分治</a>
           
         </div>
       
@@ -510,6 +520,9 @@
           </div>
           
 
+  
+    <div class="comments" id="comments">
+    </div>
   
 
 
@@ -821,6 +834,30 @@
 
 
 
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'wcR79H8FUsRVYN5YIbVDLLTg-gzGzoHsz',
+        appKey: '4aIGKynVX31tAnGSVkeIY5Xv',
+        placeholder: '雁过留声，人过留名，说点什么呗^_^',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
 
 
 

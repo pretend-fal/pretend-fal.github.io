@@ -710,6 +710,30 @@
 
 
 
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'wcR79H8FUsRVYN5YIbVDLLTg-gzGzoHsz',
+        appKey: '4aIGKynVX31tAnGSVkeIY5Xv',
+        placeholder: '雁过留声，人过留名，说点什么呗^_^',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
 
 
   
